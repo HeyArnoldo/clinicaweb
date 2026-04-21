@@ -1,0 +1,676 @@
+/* ============================================================
+   ClinicaWeb — Hoja de Estilos Global
+   Taller de Programación Web — UTP
+   Docente: Mg. Jesús Antonio Pacahuala Arroyo
+   ============================================================ */
+
+/* ── Reset básico ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+a {
+  color: #1A6EA8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   HEADER Y NAVEGACIÓN
+   ============================================================ */
+
+header {
+  background-color: #0D3B66;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 65px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  background-color: #2E8B57;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.logo-text span {
+  color: #7EC8E3;
+}
+
+nav ul {
+  display: flex;
+  gap: 4px;
+}
+
+nav ul li a {
+  color: #D6E8F7;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: #1A6EA8;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav ul li a.activo {
+  background-color: #2E8B57;
+  color: #ffffff;
+}
+
+/* ============================================================
+   HERO / BANNER DE PÁGINA
+   ============================================================ */
+
+.hero {
+  background-color: #0D3B66;
+  background-image: linear-gradient(135deg, #0D3B66 60%, #1A6EA8 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #D6E8F7;
+  max-width: 600px;
+  margin: 0 auto 28px auto;
+  line-height: 1.6;
+}
+
+.page-banner {
+  background-color: #0D3B66;
+  color: #ffffff;
+  padding: 40px 40px;
+  text-align: center;
+}
+
+.page-banner h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.page-banner p {
+  font-size: 15px;
+  color: #D6E8F7;
+}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+.btn-verde {
+  background-color: #2E8B57;
+  color: #ffffff;
+}
+
+.btn-verde:hover {
+  background-color: #246b44;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.btn-azul {
+  background-color: #1A6EA8;
+  color: #ffffff;
+}
+
+.btn-azul:hover {
+  background-color: #145680;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #0D3B66;
+  border: 2px solid #0D3B66;
+}
+
+.btn-outline:hover {
+  background-color: #0D3B66;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ============================================================
+   SECCIONES / CONTENEDORES
+   ============================================================ */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.seccion {
+  padding: 60px 40px;
+}
+
+.seccion-gris {
+  padding: 60px 40px;
+  background-color: #f0f4f8;
+}
+
+.seccion h2 {
+  font-size: 28px;
+  color: #0D3B66;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.seccion-gris h2 {
+  font-size: 28px;
+  color: #0D3B66;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #666666;
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+.linea-titulo {
+  width: 60px;
+  height: 4px;
+  background-color: #2E8B57;
+  margin: 10px auto 30px auto;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   TARJETAS (CARDS)
+   ============================================================ */
+
+.cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #D6E8F7;
+  border-radius: 8px;
+  padding: 28px 24px;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(13, 59, 102, 0.12);
+}
+
+.card-icono {
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.card h3 {
+  font-size: 17px;
+  color: #0D3B66;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   TABLAS
+   ============================================================ */
+
+.tabla-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+
+table caption {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 10px;
+  text-align: left;
+  font-style: italic;
+}
+
+thead {
+  background-color: #0D3B66;
+  color: #ffffff;
+}
+
+thead th {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f0f4f8;
+}
+
+tbody tr:hover {
+  background-color: #D6E8F7;
+}
+
+tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333333;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge-verde {
+  background-color: #d4edda;
+  color: #1a5c2e;
+}
+
+.badge-azul {
+  background-color: #D6E8F7;
+  color: #0D3B66;
+}
+
+.badge-gris {
+  background-color: #e9ecef;
+  color: #555555;
+}
+
+/* ============================================================
+   FORMULARIOS
+   ============================================================ */
+
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #D6E8F7;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.form-titulo {
+  font-size: 22px;
+  color: #0D3B66;
+  margin-bottom: 6px;
+}
+
+.form-subtitulo {
+  font-size: 13px;
+  color: #666666;
+  margin-bottom: 28px;
+}
+
+fieldset {
+  border: 1px solid #D6E8F7;
+  border-radius: 6px;
+  padding: 20px 20px 10px 20px;
+  margin-bottom: 24px;
+}
+
+legend {
+  font-size: 14px;
+  font-weight: bold;
+  color: #0D3B66;
+  padding: 0 8px;
+}
+
+.form-grupo {
+  margin-bottom: 18px;
+}
+
+.form-grupo label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  color: #333333;
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+  outline: none;
+  border-color: #1A6EA8;
+  box-shadow: 0 0 0 3px rgba(26, 110, 168, 0.15);
+}
+
+.form-grupo textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-grupo input:invalid:not(:placeholder-shown) {
+  border-color: #DC2626;
+}
+
+.form-grupo input:valid:not(:placeholder-shown) {
+  border-color: #2E8B57;
+}
+
+.form-fila {
+  display: flex;
+  gap: 16px;
+}
+
+.form-fila .form-grupo {
+  flex: 1;
+}
+
+.form-radio-grupo {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.form-radio-grupo label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.form-requerido {
+  color: #DC2626;
+}
+
+.form-nota {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 4px;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-check input[type="checkbox"] {
+  width: auto;
+  margin-top: 3px;
+}
+
+.form-check label {
+  font-size: 13px;
+  color: #555555;
+  font-weight: normal;
+}
+
+.form-acciones {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ============================================================
+   ALERTAS / INFO BOXES
+   ============================================================ */
+
+.alerta {
+  padding: 14px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.alerta-azul {
+  background-color: #D6E8F7;
+  color: #0D3B66;
+  border-left: 4px solid #1A6EA8;
+}
+
+.alerta-verde {
+  background-color: #d4edda;
+  color: #1a5c2e;
+  border-left: 4px solid #2E8B57;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer {
+  background-color: #0D3B66;
+  color: #D6E8F7;
+  padding: 48px 40px 20px 40px;
+}
+
+.footer-grid {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 15px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #2E8B57;
+}
+
+.footer-col p,
+.footer-col li {
+  font-size: 13px;
+  color: #b0c8e0;
+  line-height: 2;
+}
+
+.footer-col a {
+  color: #b0c8e0;
+  font-size: 13px;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 12px;
+  color: #7090b0;
+  padding-top: 20px;
+  border-top: 1px solid #1A6EA8;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+
+.breadcrumb {
+  background-color: #f0f4f8;
+  padding: 10px 40px;
+  font-size: 13px;
+  color: #888888;
+  border-bottom: 1px solid #D6E8F7;
+}
+
+.breadcrumb a {
+  color: #1A6EA8;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+  color: #aaaaaa;
+}
+
+/* ============================================================
+   SECCIÓN CTA
+   ============================================================ */
+
+.cta {
+  background-color: #2E8B57;
+  color: #ffffff;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.cta h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.cta p {
+  font-size: 16px;
+  margin-bottom: 28px;
+  color: #d4edda;
+}
+
+/* ============================================================
+   RESPONSIVE BÁSICO
+   ============================================================ */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 14px 20px;
+    gap: 10px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .seccion,
+  .seccion-gris {
+    padding: 40px 20px;
+  }
+
+  .form-fila {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 340px;
+  }
+}

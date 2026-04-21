@@ -1,0 +1,308 @@
+/* ============================================================
+   registro.css — Página de Registro de Paciente
+   Autor: Jesus Miguel Canchanya Soto
+   ClinicaWeb · Taller de Programación Web · UTP
+   ============================================================ */
+
+/* ── Reset ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #333333;
+  background-color: #f0f4f8;
+}
+
+a { color: #1A6EA8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { list-style: none; }
+
+/* ── Header ── */
+header {
+  background-color: #0D3B66;
+  padding: 0 40px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.logo { display: flex; align-items: center; gap: 10px; }
+
+.logo-icono {
+  width: 38px;
+  height: 38px;
+  background-color: #2E8B57;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.logo-texto { color: #ffffff; font-size: 20px; font-weight: bold; letter-spacing: 1px; }
+.logo-texto span { color: #7EC8E3; }
+
+nav ul { display: flex; gap: 4px; }
+
+nav ul li a {
+  color: #D6E8F7;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  display: block;
+}
+
+nav ul li a:hover { background-color: #1A6EA8; color: #ffffff; text-decoration: none; }
+nav ul li a.activo { background-color: #2E8B57; color: #ffffff; }
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  background-color: #f0f4f8;
+  padding: 10px 40px;
+  font-size: 13px;
+  color: #888888;
+  border-bottom: 1px solid #D6E8F7;
+}
+
+.breadcrumb a { color: #1A6EA8; }
+.breadcrumb span { margin: 0 6px; color: #aaaaaa; }
+
+/* ── Banner ── */
+.banner {
+  background-color: #0D3B66;
+  color: #ffffff;
+  text-align: center;
+  padding: 40px;
+}
+
+.banner h1 { font-size: 32px; margin-bottom: 8px; }
+.banner p  { font-size: 15px; color: #D6E8F7; }
+
+/* ── Sección del formulario ── */
+.seccion-form {
+  padding: 50px 20px;
+}
+
+/* ── Contenedor del formulario ── */
+.form-contenedor {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #D6E8F7;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.form-titulo {
+  font-size: 22px;
+  color: #0D3B66;
+  margin-bottom: 6px;
+}
+
+.form-subtitulo {
+  font-size: 13px;
+  color: #666666;
+  margin-bottom: 26px;
+}
+
+.requerido { color: #DC2626; }
+
+/* ── Alerta informativa ── */
+.alerta-azul {
+  background-color: #D6E8F7;
+  color: #0D3B66;
+  border-left: 4px solid #1A6EA8;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+/* ── Fieldsets ── */
+fieldset {
+  border: 1px solid #D6E8F7;
+  border-radius: 6px;
+  padding: 20px 20px 10px 20px;
+  margin-bottom: 24px;
+}
+
+legend {
+  font-size: 14px;
+  font-weight: bold;
+  color: #0D3B66;
+  padding: 0 8px;
+}
+
+/* ── Grupos de formulario ── */
+.grupo {
+  margin-bottom: 16px;
+}
+
+.grupo label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.grupo input,
+.grupo select,
+.grupo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  color: #333333;
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.grupo input:focus,
+.grupo select:focus,
+.grupo textarea:focus {
+  outline: none;
+  border-color: #1A6EA8;
+  box-shadow: 0 0 0 3px rgba(26,110,168,0.15);
+}
+
+.grupo input:valid:not(:placeholder-shown) { border-color: #2E8B57; }
+.grupo input:invalid:not(:placeholder-shown) { border-color: #DC2626; }
+
+.grupo textarea { resize: vertical; min-height: 90px; }
+
+.grupo-nota {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 4px;
+}
+
+/* ── Fila doble ── */
+.fila {
+  display: flex;
+  gap: 16px;
+}
+
+.fila .grupo { flex: 1; }
+
+/* ── Radio buttons ── */
+.grupo-radio {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.grupo-radio label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+/* ── Checkbox de términos ── */
+.check-terminos {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.check-terminos input[type="checkbox"] { width: auto; margin-top: 3px; }
+
+.check-terminos label {
+  font-size: 13px;
+  color: #555555;
+  font-weight: normal;
+}
+
+/* ── Botones de acción ── */
+.acciones { text-align: center; margin-top: 8px; }
+
+.btn-guardar {
+  display: inline-block;
+  padding: 13px 46px;
+  background-color: #2E8B57;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-guardar:hover { background-color: #246b44; }
+
+.btn-limpiar {
+  display: inline-block;
+  padding: 13px 30px;
+  background-color: transparent;
+  color: #0D3B66;
+  border: 2px solid #0D3B66;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.btn-limpiar:hover { background-color: #0D3B66; color: #ffffff; }
+
+/* ── Footer ── */
+footer {
+  background-color: #0D3B66;
+  color: #D6E8F7;
+  padding: 48px 40px 20px 40px;
+  margin-top: 0;
+}
+
+.footer-grid {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 15px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #2E8B57;
+}
+
+.footer-col p, .footer-col li { font-size: 13px; color: #b0c8e0; line-height: 2; }
+.footer-col a { color: #b0c8e0; font-size: 13px; }
+.footer-col a:hover { color: #ffffff; }
+
+.footer-bottom {
+  text-align: center;
+  font-size: 12px;
+  color: #7090b0;
+  padding-top: 20px;
+  border-top: 1px solid #1A6EA8;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  header { flex-direction: column; height: auto; padding: 14px 20px; gap: 10px; }
+  nav ul { flex-wrap: wrap; justify-content: center; }
+  .fila   { flex-direction: column; gap: 0; }
+  .form-contenedor { padding: 24px 16px; }
+  .footer-grid { flex-direction: column; gap: 28px; }
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClinicaWeb — Contacto</title>
+  <link rel="stylesheet" href="../css/contacto.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <div class="logo-icono">+</div>
+      <span class="logo-texto">Clinica<span>Web</span></span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../medicos/index.html">Médicos</a></li>
+        <li><a href="../pacientes/registro.html">Pacientes</a></li>
+        <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
+        <li><a href="../servicios/index.html">Servicios</a></li>
+        <li><a href="index.html" class="activo">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="../index.html">Inicio</a><span>›</span> Contacto
+  </div>
+
+  <section class="banner">
+    <h1>📞 Contáctanos</h1>
+    <p>Estamos aquí para responder tus consultas y ayudarte</p>
+  </section>
+
+  <section class="seccion-gris">
+    <div class="contenedor">
+      <h2>Información de Contacto</h2>
+      <div class="linea"></div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icono">📍</div>
+          <h3>Dirección</h3>
+          <p>Av. Javier Prado Este 1234<br>San Isidro, Lima — Perú</p>
+        </div>
+        <div class="card">
+          <div class="card-icono">📞</div>
+          <h3>Teléfonos</h3>
+          <p>Central: (01) 234-5678<br>Emergencias: (01) 234-5699<br>WhatsApp: +51 987 654 321</p>
+        </div>
+        <div class="card">
+          <div class="card-icono">✉️</div>
+          <h3>Correo Electrónico</h3>
+          <p>info@clinicaweb.pe<br>citas@clinicaweb.pe<br>urgencias@clinicaweb.pe</p>
+        </div>
+        <div class="card">
+          <div class="card-icono">🕐</div>
+          <h3>Horario de Atención</h3>
+          <p>Lunes – Viernes: 7:00 – 20:00<br>Sábado: 7:00 – 14:00<br>Urgencias: 24 horas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="form-contenedor">
+      <h2 class="form-titulo">Envíanos un Mensaje</h2>
+      <p class="form-subtitulo">Te responderemos en máximo 24 horas hábiles. Campos con <span class="requerido">*</span> son obligatorios.</p>
+
+      <form action="#" method="post" novalidate>
+
+        <fieldset>
+          <legend>👤 Tus Datos</legend>
+          <div class="fila">
+            <div class="grupo">
+              <label for="nombre">Nombre Completo <span class="requerido">*</span></label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana Martínez" required minlength="3" maxlength="80">
+            </div>
+            <div class="grupo">
+              <label for="email">Correo Electrónico <span class="requerido">*</span></label>
+              <input type="email" id="email" name="email" placeholder="Ej. ana@correo.com" required>
+            </div>
+          </div>
+          <div class="grupo">
+            <label for="telefono">Teléfono de Contacto</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ej. 987654321" pattern="[0-9]{9,15}">
+            <p class="grupo-nota">Opcional — para que te llamemos si es necesario</p>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>💬 Tu Mensaje</legend>
+          <div class="grupo">
+            <label for="asunto">Asunto <span class="requerido">*</span></label>
+            <select id="asunto" name="asunto" required>
+              <option value="">-- Seleccione el tipo de consulta --</option>
+              <option value="consulta">Consulta general</option>
+              <option value="cita">Información sobre citas</option>
+              <option value="servicios">Información sobre servicios</option>
+              <option value="queja">Queja o reclamo</option>
+              <option value="sugerencia">Sugerencia</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="grupo">
+            <label for="mensaje">Mensaje <span class="requerido">*</span></label>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu consulta, queja o sugerencia..." required minlength="20" maxlength="1000"></textarea>
+            <p class="grupo-nota">Mínimo 20 caracteres, máximo 1000</p>
+          </div>
+        </fieldset>
+
+        <div class="check-privacidad">
+          <input type="checkbox" id="privacidad" name="privacidad" required>
+          <label for="privacidad">He leído y acepto la política de privacidad y el tratamiento de mis datos personales. <span class="requerido">*</span></label>
+        </div>
+
+        <div class="acciones">
+          <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+          <button type="reset" class="btn-limpiar">Limpiar</button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <section class="seccion-gris">
+    <div class="contenedor">
+      <h2>Líneas de Atención por Área</h2>
+      <div class="linea"></div>
+      <div class="tabla-wrapper">
+        <table>
+          <caption>Tabla: Directorio de contactos por área — ClinicaWeb 2026</caption>
+          <thead>
+            <tr>
+              <th scope="col">Área</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Horario</th>
+              <th scope="col">Prioridad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Urgencias y Emergencias</strong></td>
+              <td>(01) 234-5699</td>
+              <td>urgencias@clinicaweb.pe</td>
+              <td>24 horas / 7 días</td>
+              <td><span class="badge badge-verde">Alta</span></td>
+            </tr>
+            <tr>
+              <td><strong>Citas y Agenda</strong></td>
+              <td>(01) 234-5678 anexo 1</td>
+              <td>citas@clinicaweb.pe</td>
+              <td>Lun–Vie 7:00–19:00</td>
+              <td><span class="badge badge-azul">Media</span></td>
+            </tr>
+            <tr>
+              <td><strong>Informes Generales</strong></td>
+              <td>(01) 234-5678 anexo 2</td>
+              <td>info@clinicaweb.pe</td>
+              <td>Lun–Vie 8:00–18:00</td>
+              <td><span class="badge badge-azul">Media</span></td>
+            </tr>
+            <tr>
+              <td><strong>Laboratorio y Resultados</strong></td>
+              <td>(01) 234-5678 anexo 3</td>
+              <td>lab@clinicaweb.pe</td>
+              <td>Lun–Sáb 7:00–17:00</td>
+              <td><span class="badge badge-gris">Normal</span></td>
+            </tr>
+            <tr>
+              <td><strong>Farmacia</strong></td>
+              <td>(01) 234-5678 anexo 4</td>
+              <td>farmacia@clinicaweb.pe</td>
+              <td>Lun–Sáb 7:00–20:00</td>
+              <td><span class="badge badge-gris">Normal</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>¿Prefieres una cita directamente?</h2>
+    <p>Usa nuestro formulario de agendamiento y elige tu especialidad</p>
+    <a href="../agenda/nueva-cita.html" class="btn-cta">Agendar Cita</a>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>ClinicaWeb</h4>
+        <p>Comprometidos con tu salud<br>y bienestar desde 2015.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../medicos/index.html">Médicos</a></li>
+          <li><a href="../pacientes/registro.html">Pacientes</a></li>
+          <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
+          <li><a href="../servicios/index.html">Servicios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>📍 Av. Javier Prado 1234, Lima<br>📞 (01) 234-5678<br>✉️ info@clinicaweb.pe<br>🕐 Lun–Sáb: 7:00 – 20:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ClinicaWeb — Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClinicaWeb — Nueva Cita</title>
+  <link rel="stylesheet" href="../css/nueva-cita.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <div class="logo-icono">+</div>
+      <span class="logo-texto">Clinica<span>Web</span></span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../medicos/index.html">Médicos</a></li>
+        <li><a href="../pacientes/registro.html">Pacientes</a></li>
+        <li><a href="nueva-cita.html" class="activo">Agenda</a></li>
+        <li><a href="../servicios/index.html">Servicios</a></li>
+        <li><a href="../contacto/index.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="../index.html">Inicio</a><span>›</span>
+    Agenda<span>›</span> Nueva Cita
+  </div>
+
+  <section class="banner">
+    <h1>📅 Solicitar Cita Médica</h1>
+    <p>Programa tu consulta con nuestros especialistas de forma fácil y rápida</p>
+  </section>
+
+  <section class="seccion-gris">
+    <h2>Disponibilidad de Hoy</h2>
+    <div class="linea"></div>
+    <p class="subtitulo">Lunes 20 de Abril 2026 — Slots disponibles</p>
+    <div class="tabla-wrapper">
+      <table>
+        <caption>Tabla: Turnos disponibles para hoy</caption>
+        <thead>
+          <tr>
+            <th scope="col">Hora</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Médico</th>
+            <th scope="col">Consultorio</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>08:00 am</td><td>Cardiología</td>
+            <td>Dr. Carlos Mendoza</td><td>Consultorio 1 — Piso 2</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+          </tr>
+          <tr>
+            <td>09:00 am</td><td>Pediatría</td>
+            <td>Dra. María Torres</td><td>Consultorio 3 — Piso 1</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+          </tr>
+          <tr>
+            <td>10:00 am</td><td>Neurología</td>
+            <td>Dra. Ana Quispe</td><td>Consultorio 5 — Piso 3</td>
+            <td><span class="badge badge-gris">Ocupado</span></td>
+          </tr>
+          <tr>
+            <td>11:00 am</td><td>Oftalmología</td>
+            <td>Dr. Jorge Vega</td><td>Consultorio 2 — Piso 2</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+          </tr>
+          <tr>
+            <td>02:00 pm</td><td>Dermatología</td>
+            <td>Dra. Lucía Flores</td><td>Consultorio 4 — Piso 1</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+          </tr>
+          <tr>
+            <td>03:00 pm</td><td>Cardiología</td>
+            <td>Dr. Carlos Mendoza</td><td>Consultorio 1 — Piso 2</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+          </tr>
+          <tr>
+            <td>04:00 pm</td><td>Traumatología</td>
+            <td>Dr. Roberto Salas</td><td>Consultorio 6 — Piso 3</td>
+            <td><span class="badge badge-gris">Ocupado</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="form-contenedor">
+      <h2 class="form-titulo">Nueva Solicitud de Cita</h2>
+      <p class="form-subtitulo">Los campos con <span class="requerido">*</span> son obligatorios.</p>
+
+      <div class="alerta-verde">
+        ✅ Confirmaremos tu cita al correo electrónico en un plazo de 2 horas hábiles.
+      </div>
+
+      <form action="#" method="post" novalidate>
+
+        <fieldset>
+          <legend>👤 Datos del Paciente</legend>
+          <div class="fila">
+            <div class="grupo">
+              <label for="pac-nombre">Nombre Completo <span class="requerido">*</span></label>
+              <input type="text" id="pac-nombre" name="pac-nombre" placeholder="Ej. Juan Pérez García" required minlength="3" maxlength="100">
+            </div>
+            <div class="grupo">
+              <label for="pac-dni">DNI / Documento <span class="requerido">*</span></label>
+              <input type="text" id="pac-dni" name="pac-dni" placeholder="Ej. 12345678" required pattern="[0-9]{8,12}">
+            </div>
+          </div>
+          <div class="fila">
+            <div class="grupo">
+              <label for="pac-tel">Teléfono <span class="requerido">*</span></label>
+              <input type="tel" id="pac-tel" name="pac-tel" placeholder="Ej. 987654321" required pattern="[0-9]{9,15}">
+            </div>
+            <div class="grupo">
+              <label for="pac-email">Correo Electrónico <span class="requerido">*</span></label>
+              <input type="email" id="pac-email" name="pac-email" placeholder="Ej. juan@correo.com" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>🩺 Detalles de la Consulta</legend>
+          <div class="fila">
+            <div class="grupo">
+              <label for="especialidad">Especialidad <span class="requerido">*</span></label>
+              <select id="especialidad" name="especialidad" required>
+                <option value="">-- Seleccione --</option>
+                <option value="cardiologia">Cardiología</option>
+                <option value="pediatria">Pediatría</option>
+                <option value="traumatologia">Traumatología</option>
+                <option value="neurologia">Neurología</option>
+                <option value="oftalmologia">Oftalmología</option>
+                <option value="dermatologia">Dermatología</option>
+                <option value="endocrinologia">Endocrinología</option>
+                <option value="gastro">Gastroenterología</option>
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="medico">Médico Preferido <span class="requerido">*</span></label>
+              <select id="medico" name="medico" required>
+                <option value="">-- Seleccione --</option>
+                <option value="mendoza">Dr. Carlos Mendoza (Cardiología)</option>
+                <option value="torres">Dra. María Torres (Pediatría)</option>
+                <option value="salas">Dr. Roberto Salas (Traumatología)</option>
+                <option value="quispe">Dra. Ana Quispe (Neurología)</option>
+                <option value="vega">Dr. Jorge Vega (Oftalmología)</option>
+                <option value="flores">Dra. Lucía Flores (Dermatología)</option>
+                <option value="leon">Dra. Patricia León (Endocrinología)</option>
+              </select>
+            </div>
+          </div>
+          <div class="fila">
+            <div class="grupo">
+              <label for="fecha-cita">Fecha de Cita <span class="requerido">*</span></label>
+              <input type="date" id="fecha-cita" name="fecha-cita" required min="2026-04-21" max="2026-07-20">
+              <p class="grupo-nota">Disponible hasta 90 días adelante</p>
+            </div>
+            <div class="grupo">
+              <label for="hora-cita">Hora Preferida <span class="requerido">*</span></label>
+              <select id="hora-cita" name="hora-cita" required>
+                <option value="">-- Seleccione --</option>
+                <option value="08:00">08:00 am</option>
+                <option value="08:30">08:30 am</option>
+                <option value="09:00">09:00 am</option>
+                <option value="09:30">09:30 am</option>
+                <option value="10:00">10:00 am</option>
+                <option value="11:00">11:00 am</option>
+                <option value="14:00">02:00 pm</option>
+                <option value="15:00">03:00 pm</option>
+                <option value="16:00">04:00 pm</option>
+                <option value="17:00">05:00 pm</option>
+              </select>
+            </div>
+          </div>
+          <div class="grupo">
+            <label>Tipo de Consulta <span class="requerido">*</span></label>
+            <div class="grupo-radio">
+              <label><input type="radio" name="tipo" value="primera-vez" required> Primera vez</label>
+              <label><input type="radio" name="tipo" value="control"> Control / Seguimiento</label>
+              <label><input type="radio" name="tipo" value="urgente"> Urgente</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>📝 Motivo de Consulta</legend>
+          <div class="grupo">
+            <label for="motivo">Descripción breve <span class="requerido">*</span></label>
+            <textarea id="motivo" name="motivo" placeholder="Ej. Presento dolor en el pecho desde hace 3 días..." required minlength="10" maxlength="500"></textarea>
+            <p class="grupo-nota">Entre 10 y 500 caracteres</p>
+          </div>
+        </fieldset>
+
+        <div class="check-acepto">
+          <input type="checkbox" id="acepto" name="acepto" required>
+          <label for="acepto">Acepto los términos y condiciones del servicio de citas de ClinicaWeb. <span class="requerido">*</span></label>
+        </div>
+
+        <div class="acciones">
+          <button type="submit" class="btn-solicitar">Solicitar Cita</button>
+          <button type="reset" class="btn-limpiar">Limpiar</button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>ClinicaWeb</h4>
+        <p>Comprometidos con tu salud<br>y bienestar desde 2015.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../medicos/index.html">Médicos</a></li>
+          <li><a href="../pacientes/registro.html">Pacientes</a></li>
+          <li><a href="../servicios/index.html">Servicios</a></li>
+          <li><a href="../contacto/index.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>📍 Av. Javier Prado 1234, Lima<br>📞 (01) 234-5678<br>✉️ info@clinicaweb.pe</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ClinicaWeb — Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</p>
+    </div>
+  </footer>
+
+</body>
+</html>

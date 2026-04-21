@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClinicaWeb — Médicos</title>
+  <link rel="stylesheet" href="../css/medicos.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <div class="logo-icono">+</div>
+      <span class="logo-texto">Clinica<span>Web</span></span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="index.html" class="activo">Médicos</a></li>
+        <li><a href="../pacientes/registro.html">Pacientes</a></li>
+        <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
+        <li><a href="../servicios/index.html">Servicios</a></li>
+        <li><a href="../contacto/index.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="../index.html">Inicio</a><span>›</span> Médicos
+  </div>
+
+  <section class="banner">
+    <h1>👨‍⚕️ Nuestro Equipo Médico</h1>
+    <p>Profesionales certificados y comprometidos con tu salud</p>
+  </section>
+
+  <section class="seccion">
+    <h2>Directorio de Especialistas</h2>
+    <div class="linea"></div>
+    <p class="subtitulo">Consulta la disponibilidad y agenda tu cita</p>
+    <div class="tabla-wrapper">
+      <table>
+        <caption>Tabla 1: Directorio del Cuerpo Médico — ClinicaWeb 2026</caption>
+        <thead>
+          <tr>
+            <th scope="col">Médico</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">CMP</th>
+            <th scope="col">Atención</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dr. Carlos Mendoza</strong></td>
+            <td>Cardiología</td><td>45231</td>
+            <td>Lun–Vie 08:00–13:00</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+            <td><a href="../agenda/nueva-cita.html" class="btn-tabla">Agendar</a></td>
+          </tr>
+          <tr>
+            <td><strong>Dra. María Torres</strong></td>
+            <td>Pediatría</td><td>38742</td>
+            <td>Lun–Sáb 09:00–14:00</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+            <td><a href="../agenda/nueva-cita.html" class="btn-tabla">Agendar</a></td>
+          </tr>
+          <tr>
+            <td><strong>Dr. Roberto Salas</strong></td>
+            <td>Traumatología</td><td>52184</td>
+            <td>Mar–Sáb 10:00–16:00</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+            <td><a href="../agenda/nueva-cita.html" class="btn-tabla">Agendar</a></td>
+          </tr>
+          <tr>
+            <td><strong>Dra. Ana Quispe</strong></td>
+            <td>Neurología</td><td>61037</td>
+            <td>Lun–Jue 07:00–12:00</td>
+            <td><span class="badge badge-azul">Ocupado hoy</span></td>
+            <td><a href="../agenda/nueva-cita.html" class="btn-tabla">Agendar</a></td>
+          </tr>
+          <tr>
+            <td><strong>Dr. Jorge Vega</strong></td>
+            <td>Oftalmología</td><td>29856</td>
+            <td>Mié–Sáb 08:00–13:00</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+            <td><a href="../agenda/nueva-cita.html" class="btn-tabla">Agendar</a></td>
+          </tr>
+          <tr>
+            <td><strong>Dra. Lucía Flores</strong></td>
+            <td>Dermatología</td><td>74512</td>
+            <td>Lun–Vie 14:00–19:00</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+            <td><a href="../agenda/nueva-cita.html" class="btn-tabla">Agendar</a></td>
+          </tr>
+          <tr>
+            <td><strong>Dr. Miguel Ramos</strong></td>
+            <td>Gastroenterología</td><td>83649</td>
+            <td>Lun–Vie 08:00–14:00</td>
+            <td><span class="badge badge-gris">Vacaciones</span></td>
+            <td><span style="font-size:12px;color:#888;">No disponible</span></td>
+          </tr>
+          <tr>
+            <td><strong>Dra. Patricia León</strong></td>
+            <td>Endocrinología</td><td>41293</td>
+            <td>Mar–Sáb 09:00–15:00</td>
+            <td><span class="badge badge-verde">Disponible</span></td>
+            <td><a href="../agenda/nueva-cita.html" class="btn-tabla">Agendar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="seccion-gris">
+    <h2>Disponibilidad Semanal</h2>
+    <div class="linea"></div>
+    <p class="subtitulo">Resumen de turnos disponibles por día</p>
+    <div class="tabla-wrapper">
+      <table>
+        <caption>Tabla 2: Disponibilidad horaria semanal del equipo médico</caption>
+        <thead>
+          <tr>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Lunes</th>
+            <th scope="col">Martes</th>
+            <th scope="col">Miércoles</th>
+            <th scope="col">Jueves</th>
+            <th scope="col">Viernes</th>
+            <th scope="col">Sábado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cardiología</td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-gris">Cerrado</span></td>
+          </tr>
+          <tr>
+            <td>Pediatría</td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+          </tr>
+          <tr>
+            <td>Traumatología</td>
+            <td><span class="badge badge-gris">Cerrado</span></td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+          </tr>
+          <tr>
+            <td>Neurología</td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-verde">Mañana</span></td>
+            <td><span class="badge badge-gris">Cerrado</span></td>
+            <td><span class="badge badge-gris">Cerrado</span></td>
+          </tr>
+          <tr>
+            <td>Dermatología</td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+            <td><span class="badge badge-azul">Tarde</span></td>
+            <td><span class="badge badge-gris">Cerrado</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>¿Encontraste a tu especialista?</h2>
+    <p>Agenda tu cita ahora de manera rápida y sencilla</p>
+    <a href="../agenda/nueva-cita.html" class="btn-cta">Solicitar Cita</a>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>ClinicaWeb</h4>
+        <p>Comprometidos con tu salud<br>y bienestar desde 2015.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../pacientes/registro.html">Pacientes</a></li>
+          <li><a href="../servicios/index.html">Servicios</a></li>
+          <li><a href="../contacto/index.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>📍 Av. Javier Prado 1234, Lima<br>📞 (01) 234-5678<br>✉️ info@clinicaweb.pe</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ClinicaWeb — Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</p>
+    </div>
+  </footer>
+
+</body>
+</html>
