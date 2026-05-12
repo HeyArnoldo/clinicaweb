@@ -3,95 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClinicaWeb — Servicios</title>
-  <link rel="stylesheet" href="../css/servicios.css">
+  <meta name="description" content="Catálogo completo de servicios médicos de ClinicaWeb: 15 especialidades, laboratorio, imagenología y vacunación.">
+  <title>ClinicaWeb — Servicios y especialidades</title>
+  <link rel="stylesheet" href="../css/tokens.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <div class="logo-icono">+</div>
-      <span class="logo-texto">Clinica<span>Web</span></span>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="brand" aria-label="ClinicaWeb — Inicio">
+        <span class="brand__mark" aria-hidden="true">+</span>
+        <span class="brand__name">Clinica<em>Web</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Principal">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../medicos/index.html">Médicos</a></li>
+          <li><a href="index.html" aria-current="page">Servicios</a></li>
+          <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
+          <li><a href="../pacientes/registro.html">Pacientes</a></li>
+          <li><a href="../contacto/index.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__right">
+        <span class="site-header__status">
+          <span class="dot" aria-hidden="true"></span>
+          Abierto · 07:00–20:00
+        </span>
+        <a href="../agenda/nueva-cita.html" class="btn btn--primary btn--sm">Agendar</a>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../medicos/index.html">Médicos</a></li>
-        <li><a href="../pacientes/registro.html">Pacientes</a></li>
-        <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
-        <li><a href="index.html" class="activo">Servicios</a></li>
-        <li><a href="../contacto/index.html">Contacto</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <div class="breadcrumb">
-    <a href="../index.html">Inicio</a><span>›</span> Servicios
-  </div>
+  <nav class="breadcrumb" aria-label="Migas de pan">
+    <div class="breadcrumb__inner">
+      <a href="../index.html">Inicio</a>
+      <span class="breadcrumb__sep">/</span>
+      <span aria-current="page">Servicios</span>
+    </div>
+  </nav>
 
-  <section class="banner">
-    <h1>💊 Nuestros Servicios</h1>
-    <p>Más de 15 especialidades médicas para el cuidado integral de tu salud</p>
-  </section>
+  <main>
 
-  <section class="seccion">
-    <h2>Especialidades Médicas</h2>
-    <div class="linea"></div>
-    <p class="subtitulo">Selecciona la especialidad que necesitas y agenda tu cita</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icono">🫀</div>
-        <h3>Cardiología</h3>
-        <p>Diagnóstico y tratamiento de enfermedades del corazón y sistema cardiovascular.</p>
-        <a href="../agenda/nueva-cita.html" class="btn-card">Agendar</a>
+    <section class="page-intro">
+      <div class="page-intro__inner">
+        <div>
+          <div class="kicker page-intro__kicker">Catálogo · Servicios médicos</div>
+          <h1>15 especialidades, laboratorio e imagenología.</h1>
+          <p class="page-intro__lead">
+            Catálogo completo con duración, precio referencial y convenios. Precios sujetos a cambio sin previo aviso.
+          </p>
+        </div>
+        <div class="page-intro__meta">
+          <div><strong>15</strong> especialidades · <strong>10</strong> con convenio</div>
+          <div>Vigente · Abr 2026</div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icono">🧒</div>
-        <h3>Pediatría</h3>
-        <p>Atención especializada para niños y adolescentes en todas sus etapas.</p>
-        <a href="../agenda/nueva-cita.html" class="btn-card">Agendar</a>
-      </div>
-      <div class="card">
-        <div class="card-icono">🦴</div>
-        <h3>Traumatología</h3>
-        <p>Tratamiento de lesiones y enfermedades del aparato locomotor.</p>
-        <a href="../agenda/nueva-cita.html" class="btn-card">Agendar</a>
-      </div>
-      <div class="card">
-        <div class="card-icono">🧠</div>
-        <h3>Neurología</h3>
-        <p>Diagnóstico y tratamiento de enfermedades del sistema nervioso.</p>
-        <a href="../agenda/nueva-cita.html" class="btn-card">Agendar</a>
-      </div>
-      <div class="card">
-        <div class="card-icono">👁️</div>
-        <h3>Oftalmología</h3>
-        <p>Cuidado integral de la salud visual y enfermedades oculares.</p>
-        <a href="../agenda/nueva-cita.html" class="btn-card">Agendar</a>
-      </div>
-      <div class="card">
-        <div class="card-icono">🌿</div>
-        <h3>Dermatología</h3>
-        <p>Diagnóstico y tratamiento de enfermedades de la piel, cabello y uñas.</p>
-        <a href="../agenda/nueva-cita.html" class="btn-card">Agendar</a>
+    </section>
+
+    <div class="banner-media" aria-hidden="true">
+      <div class="banner-media__inner">
+        <img src="../assets/img/servicios-estetoscopio.jpg"
+             alt="Stetoscopio y libreta clínica sobre escritorio">
+        <div class="banner-media__overlay"></div>
+        <div class="banner-media__caption">
+          <span class="dot" aria-hidden="true"></span>
+          15 especialidades · Laboratorio + Imagenología
+        </div>
       </div>
     </div>
-  </section>
 
-  <section class="seccion-gris">
-    <div class="contenedor">
-      <h2>Catálogo Completo de Servicios</h2>
-      <div class="linea"></div>
-      <p class="subtitulo">Precios referenciales — sujetos a cambio sin previo aviso</p>
-      <div class="tabla-wrapper">
-        <table>
-          <caption>Tabla 1: Catálogo de especialidades médicas — ClinicaWeb 2026</caption>
+    <!-- ESPECIALIDADES DESTACADAS -->
+    <section class="section">
+      <div class="section__head">
+        <div>
+          <div class="kicker">01 — Destacadas</div>
+          <h2>Especialidades más solicitadas.</h2>
+          <p class="section__lead">Las seis especialidades con mayor demanda este trimestre.</p>
+        </div>
+        <div class="section__meta">6 de 15</div>
+      </div>
+
+      <div class="grid grid--3 grid--bordered">
+        <article class="tile">
+          <div class="tile__media">
+            <img src="../assets/img/cardiologia.jpg"
+                 alt="Monitor cardíaco" loading="lazy">
+            <span class="tile__media-badge">/01</span>
+          </div>
+          <div class="tile__head">
+            <h3>Cardiología</h3>
+            <span class="tile__num">EKG</span>
+          </div>
+          <p>Diagnóstico y tratamiento de enfermedades del corazón y sistema cardiovascular. Incluye electrocardiograma.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">45 min</span> · <span class="tile__price">S/ 120</span></span>
+            <a href="../agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="../assets/img/pediatria.jpg"
+                 alt="Sala pediátrica" loading="lazy">
+            <span class="tile__media-badge">/02</span>
+          </div>
+          <div class="tile__head">
+            <h3>Pediatría</h3>
+            <span class="tile__num">0–17</span>
+          </div>
+          <p>Atención especializada para niños y adolescentes, control de crecimiento y vacunación.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">30 min</span> · <span class="tile__price">S/ 80</span></span>
+            <a href="../agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="../assets/img/traumatologia.jpg"
+                 alt="Examen óseo" loading="lazy">
+            <span class="tile__media-badge">/03</span>
+          </div>
+          <div class="tile__head">
+            <h3>Traumatología</h3>
+            <span class="tile__num">OST</span>
+          </div>
+          <p>Tratamiento de lesiones y enfermedades del aparato locomotor. Evaluación musculoesquelética.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">40 min</span> · <span class="tile__price">S/ 110</span></span>
+            <a href="../agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="../assets/img/neurologia.jpg"
+                 alt="Diagnóstico neurológico" loading="lazy">
+            <span class="tile__media-badge">/04</span>
+          </div>
+          <div class="tile__head">
+            <h3>Neurología</h3>
+            <span class="tile__num">NEU</span>
+          </div>
+          <p>Diagnóstico de enfermedades del sistema nervioso, cefaleas y trastornos del sueño.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">50 min</span> · <span class="tile__price">S/ 140</span></span>
+            <a href="../agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="../assets/img/oftalmologia.jpg"
+                 alt="Equipo oftalmológico" loading="lazy">
+            <span class="tile__media-badge">/05</span>
+          </div>
+          <div class="tile__head">
+            <h3>Oftalmología</h3>
+            <span class="tile__num">OFT</span>
+          </div>
+          <p>Examen visual completo, fondo de ojo y evaluación de presión intraocular.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">35 min</span> · <span class="tile__price">S/ 90</span></span>
+            <a href="../agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="../assets/img/radiologia.jpg"
+                 alt="Examen dermatológico" loading="lazy">
+            <span class="tile__media-badge">/06</span>
+          </div>
+          <div class="tile__head">
+            <h3>Dermatología</h3>
+            <span class="tile__num">DRM</span>
+          </div>
+          <p>Evaluación de piel, diagnóstico de lesiones y manejo dermatológico general.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">30 min</span> · <span class="tile__price">S/ 95</span></span>
+            <a href="../agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO COMPLETO -->
+    <section class="section section--alt">
+      <div class="section__head">
+        <div>
+          <div class="kicker">Tabla 01 — Catálogo completo</div>
+          <h2>Todas las especialidades disponibles.</h2>
+          <p class="section__lead">Precios referenciales — sujetos a cambio sin previo aviso. Convenios EsSalud y SIS donde se indique.</p>
+        </div>
+        <div class="section__meta">10 mostradas · 15 totales</div>
+      </div>
+
+      <div class="table-wrap table-wrap--scroll">
+        <table class="data-table">
+          <caption>Catálogo de especialidades médicas — ClinicaWeb 2026</caption>
           <thead>
             <tr>
               <th scope="col">Especialidad</th>
               <th scope="col">Descripción</th>
               <th scope="col">Duración</th>
-              <th scope="col">Precio (S/.)</th>
+              <th scope="col" class="num">Precio (S/)</th>
               <th scope="col">Convenio</th>
             </tr>
           </thead>
@@ -99,123 +211,190 @@
             <tr>
               <td><strong>Cardiología</strong></td>
               <td>Consulta general y electrocardiograma</td>
-              <td>45 min</td><td>S/. 120</td>
-              <td><span class="badge badge-verde">EsSalud · SIS</span></td>
+              <td class="time">45 min</td>
+              <td class="num price">120</td>
+              <td><span class="badge badge--ok">EsSalud · SIS</span></td>
             </tr>
             <tr>
               <td><strong>Pediatría</strong></td>
               <td>Consulta pediátrica y control de crecimiento</td>
-              <td>30 min</td><td>S/. 80</td>
-              <td><span class="badge badge-verde">EsSalud · SIS</span></td>
+              <td class="time">30 min</td>
+              <td class="num price">80</td>
+              <td><span class="badge badge--ok">EsSalud · SIS</span></td>
             </tr>
             <tr>
               <td><strong>Traumatología</strong></td>
               <td>Evaluación musculoesquelética</td>
-              <td>40 min</td><td>S/. 110</td>
-              <td><span class="badge badge-azul">EsSalud</span></td>
+              <td class="time">40 min</td>
+              <td class="num price">110</td>
+              <td><span class="badge badge--info">EsSalud</span></td>
             </tr>
             <tr>
               <td><strong>Neurología</strong></td>
-              <td>Diagnóstico de enfermedades del sistema nervioso</td>
-              <td>50 min</td><td>S/. 140</td>
-              <td><span class="badge badge-azul">EsSalud</span></td>
+              <td>Diagnóstico del sistema nervioso</td>
+              <td class="time">50 min</td>
+              <td class="num price">140</td>
+              <td><span class="badge badge--info">EsSalud</span></td>
             </tr>
             <tr>
               <td><strong>Oftalmología</strong></td>
               <td>Examen visual completo y fondo de ojo</td>
-              <td>35 min</td><td>S/. 90</td>
-              <td><span class="badge badge-verde">EsSalud · SIS</span></td>
+              <td class="time">35 min</td>
+              <td class="num price">90</td>
+              <td><span class="badge badge--ok">EsSalud · SIS</span></td>
             </tr>
             <tr>
               <td><strong>Dermatología</strong></td>
               <td>Evaluación de piel y diagnóstico de lesiones</td>
-              <td>30 min</td><td>S/. 95</td>
-              <td><span class="badge badge-gris">Particular</span></td>
+              <td class="time">30 min</td>
+              <td class="num price">95</td>
+              <td><span class="badge badge--muted">Particular</span></td>
             </tr>
             <tr>
               <td><strong>Gastroenterología</strong></td>
               <td>Evaluación del sistema digestivo</td>
-              <td>60 min</td><td>S/. 160</td>
-              <td><span class="badge badge-azul">EsSalud</span></td>
+              <td class="time">60 min</td>
+              <td class="num price">160</td>
+              <td><span class="badge badge--info">EsSalud</span></td>
             </tr>
             <tr>
               <td><strong>Endocrinología</strong></td>
               <td>Trastornos hormonales, diabetes y tiroides</td>
-              <td>45 min</td><td>S/. 130</td>
-              <td><span class="badge badge-verde">EsSalud · SIS</span></td>
+              <td class="time">45 min</td>
+              <td class="num price">130</td>
+              <td><span class="badge badge--ok">EsSalud · SIS</span></td>
             </tr>
             <tr>
               <td><strong>Ginecología</strong></td>
               <td>Control ginecológico y Papanicolaou</td>
-              <td>40 min</td><td>S/. 100</td>
-              <td><span class="badge badge-verde">EsSalud · SIS</span></td>
+              <td class="time">40 min</td>
+              <td class="num price">100</td>
+              <td><span class="badge badge--ok">EsSalud · SIS</span></td>
             </tr>
             <tr>
               <td><strong>Radiología</strong></td>
               <td>Rayos X, ecografías y tomografías</td>
-              <td>20 min</td><td>S/. 70</td>
-              <td><span class="badge badge-verde">EsSalud · SIS</span></td>
+              <td class="time">20 min</td>
+              <td class="num price">70</td>
+              <td><span class="badge badge--ok">EsSalud · SIS</span></td>
             </tr>
           </tbody>
         </table>
       </div>
+    </section>
 
-      <br>
+    <!-- SERVICIOS ADICIONALES -->
+    <section class="section">
+      <div class="section__head">
+        <div>
+          <div class="kicker">Tabla 02 — Servicios complementarios</div>
+          <h2>Laboratorio, imagenología y preventivos.</h2>
+          <p class="section__lead">Servicios de apoyo diagnóstico con resultados entre 4 y 24 horas.</p>
+        </div>
+        <div class="section__meta">5 servicios</div>
+      </div>
 
-      <h2>Servicios Adicionales</h2>
-      <div class="linea"></div>
-      <div class="tabla-wrapper">
-        <table>
-          <caption>Tabla 2: Servicios complementarios y de apoyo diagnóstico</caption>
+      <div class="table-wrap table-wrap--scroll">
+        <table class="data-table">
+          <caption>Servicios complementarios y de apoyo diagnóstico</caption>
           <thead>
             <tr>
               <th scope="col">Servicio</th>
               <th scope="col">Tipo</th>
-              <th scope="col">Duración estimada</th>
-              <th scope="col">Precio (S/.)</th>
+              <th scope="col">Duración</th>
+              <th scope="col" class="num">Precio (S/)</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Análisis de sangre completo</td><td>Laboratorio</td><td>Resultado en 4 hrs</td><td>S/. 45</td></tr>
-            <tr><td>Electrocardiograma (ECG)</td><td>Diagnóstico</td><td>15 min</td><td>S/. 50</td></tr>
-            <tr><td>Ecografía abdominal</td><td>Imagen</td><td>20 min</td><td>S/. 80</td></tr>
-            <tr><td>Radiografía de tórax</td><td>Imagen</td><td>10 min</td><td>S/. 35</td></tr>
-            <tr><td>Vacunación</td><td>Preventivo</td><td>5 min</td><td>Desde S/. 20</td></tr>
+            <tr>
+              <td><strong>Análisis de sangre completo</strong></td>
+              <td>Laboratorio</td>
+              <td class="time">Resultado en 4 h</td>
+              <td class="num price">45</td>
+            </tr>
+            <tr>
+              <td><strong>Electrocardiograma (ECG)</strong></td>
+              <td>Diagnóstico</td>
+              <td class="time">15 min</td>
+              <td class="num price">50</td>
+            </tr>
+            <tr>
+              <td><strong>Ecografía abdominal</strong></td>
+              <td>Imagen</td>
+              <td class="time">20 min</td>
+              <td class="num price">80</td>
+            </tr>
+            <tr>
+              <td><strong>Radiografía de tórax</strong></td>
+              <td>Imagen</td>
+              <td class="time">10 min</td>
+              <td class="num price">35</td>
+            </tr>
+            <tr>
+              <td><strong>Vacunación</strong></td>
+              <td>Preventivo</td>
+              <td class="time">5 min</td>
+              <td class="num price">desde 20</td>
+            </tr>
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="cta">
-    <h2>¿Necesitas alguno de estos servicios?</h2>
-    <p>Agenda tu cita hoy y recibe atención personalizada</p>
-    <a href="../agenda/nueva-cita.html" class="btn-cta">Solicitar Cita</a>
-  </section>
-
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>ClinicaWeb</h4>
-        <p>Comprometidos con tu salud<br>y bienestar desde 2015.</p>
+    <!-- CTA -->
+    <section class="cta-strip">
+      <div class="cta-strip__inner">
+        <div>
+          <h2>¿Necesitas alguno de estos servicios?</h2>
+          <p>Agenda en línea y elige horario disponible. Confirmación por correo en 2 horas hábiles.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="../agenda/nueva-cita.html" class="btn btn--primary btn--lg">Solicitar cita</a>
+          <a href="../medicos/index.html" class="btn btn--secondary btn--lg">Ver médicos</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Secciones</h4>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="../index.html" class="brand">
+          <span class="brand__mark" aria-hidden="true">+</span>
+          <span class="brand__name">Clinica<em>Web</em></span>
+        </a>
+        <p>Atención médica integral en San Isidro, Lima. Comprometidos con tu salud y bienestar desde 2015.</p>
+      </div>
+      <div class="site-footer__col">
+        <h4>Servicios</h4>
         <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="../medicos/index.html">Médicos</a></li>
-          <li><a href="../pacientes/registro.html">Pacientes</a></li>
-          <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
-          <li><a href="../contacto/index.html">Contacto</a></li>
+          <li><a href="../medicos/index.html">Directorio médico</a></li>
+          <li><a href="index.html">Especialidades</a></li>
+          <li><a href="../agenda/nueva-cita.html">Agendar cita</a></li>
+          <li><a href="../pacientes/registro.html">Registro paciente</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="site-footer__col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="../contacto/index.html">Contacto</a></li>
+          <li><a href="../contacto/index.html">Urgencias 24/7</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col site-footer__contact">
         <h4>Contacto</h4>
-        <p>📍 Av. Javier Prado 1234, Lima<br>📞 (01) 234-5678<br>✉️ info@clinicaweb.pe</p>
+        <div class="row"><span class="lab">Dirección</span><span class="val">Av. Javier Prado 1234, San Isidro</span></div>
+        <div class="row"><span class="lab">Teléfono</span><span class="val">(01) 234-5678</span></div>
+        <div class="row"><span class="lab">Correo</span><span class="val">info@clinicaweb.pe</span></div>
+        <div class="row"><span class="lab">Horario</span><span class="val">Lun–Sáb · 07:00–20:00</span></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 ClinicaWeb — Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</p>
+    <div class="site-footer__bottom">
+      <span>© 2026 ClinicaWeb · Todos los derechos reservados</span>
+      <span>Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</span>
     </div>
   </footer>
 

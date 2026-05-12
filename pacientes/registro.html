@@ -3,191 +3,253 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClinicaWeb — Registro de Paciente</title>
-  <link rel="stylesheet" href="../css/registro.css">
+  <meta name="description" content="Registro de paciente en ClinicaWeb. Datos protegidos según la Ley N.° 29733 de Protección de Datos Personales.">
+  <title>ClinicaWeb — Registro de paciente</title>
+  <link rel="stylesheet" href="../css/tokens.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <div class="logo-icono">+</div>
-      <span class="logo-texto">Clinica<span>Web</span></span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../medicos/index.html">Médicos</a></li>
-        <li><a href="registro.html" class="activo">Pacientes</a></li>
-        <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
-        <li><a href="../servicios/index.html">Servicios</a></li>
-        <li><a href="../contacto/index.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="breadcrumb">
-    <a href="../index.html">Inicio</a><span>›</span>
-    Pacientes<span>›</span> Registro
-  </div>
-
-  <section class="banner">
-    <h1>🧑 Registro de Paciente</h1>
-    <p>Completa tus datos para poder atenderte de la mejor manera</p>
-  </section>
-
-  <section class="seccion-form">
-    <div class="form-contenedor">
-      <h2 class="form-titulo">Nuevo Registro</h2>
-      <p class="form-subtitulo">Los campos marcados con <span class="requerido">*</span> son obligatorios.</p>
-
-      <div class="alerta-azul">
-        ℹ️ Tus datos serán tratados con total confidencialidad según la Ley N.° 29733 de Protección de Datos Personales.
-      </div>
-
-      <form action="#" method="post" novalidate>
-
-        <fieldset>
-          <legend>👤 Datos Personales</legend>
-          <div class="fila">
-            <div class="grupo">
-              <label for="nombres">Nombres <span class="requerido">*</span></label>
-              <input type="text" id="nombres" name="nombres" placeholder="Ej. María del Carmen" required minlength="2" maxlength="60">
-            </div>
-            <div class="grupo">
-              <label for="apellidos">Apellidos <span class="requerido">*</span></label>
-              <input type="text" id="apellidos" name="apellidos" placeholder="Ej. García López" required minlength="2" maxlength="60">
-            </div>
-          </div>
-          <div class="fila">
-            <div class="grupo">
-              <label for="tipo-doc">Tipo de Documento <span class="requerido">*</span></label>
-              <select id="tipo-doc" name="tipo-doc" required>
-                <option value="">-- Seleccione --</option>
-                <option value="dni">DNI</option>
-                <option value="ce">Carné de Extranjería</option>
-                <option value="pasaporte">Pasaporte</option>
-              </select>
-            </div>
-            <div class="grupo">
-              <label for="num-doc">N.° de Documento <span class="requerido">*</span></label>
-              <input type="text" id="num-doc" name="num-doc" placeholder="Ej. 12345678" required minlength="8" maxlength="12" pattern="[0-9]{8,12}">
-              <p class="grupo-nota">Solo números, 8 a 12 dígitos</p>
-            </div>
-          </div>
-          <div class="fila">
-            <div class="grupo">
-              <label for="fecha-nac">Fecha de Nacimiento <span class="requerido">*</span></label>
-              <input type="date" id="fecha-nac" name="fecha-nac" required max="2008-04-20">
-            </div>
-            <div class="grupo">
-              <label for="grupo-sang">Grupo Sanguíneo</label>
-              <select id="grupo-sang" name="grupo-sang">
-                <option value="">-- No sé / No especifica --</option>
-                <option value="a+">A+</option><option value="a-">A-</option>
-                <option value="b+">B+</option><option value="b-">B-</option>
-                <option value="ab+">AB+</option><option value="ab-">AB-</option>
-                <option value="o+">O+</option><option value="o-">O-</option>
-              </select>
-            </div>
-          </div>
-          <div class="grupo">
-            <label>Sexo <span class="requerido">*</span></label>
-            <div class="grupo-radio">
-              <label><input type="radio" name="sexo" value="M" required> Masculino</label>
-              <label><input type="radio" name="sexo" value="F"> Femenino</label>
-              <label><input type="radio" name="sexo" value="otro"> No especifica</label>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>📞 Datos de Contacto</legend>
-          <div class="grupo">
-            <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion" placeholder="Ej. Av. Los Pinos 456, Miraflores" maxlength="150">
-          </div>
-          <div class="fila">
-            <div class="grupo">
-              <label for="telefono">Teléfono <span class="requerido">*</span></label>
-              <input type="tel" id="telefono" name="telefono" placeholder="Ej. 987654321" required pattern="[0-9]{9,15}">
-            </div>
-            <div class="grupo">
-              <label for="email">Correo Electrónico <span class="requerido">*</span></label>
-              <input type="email" id="email" name="email" placeholder="Ej. maria@correo.com" required>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>🚨 Contacto de Emergencia</legend>
-          <div class="fila">
-            <div class="grupo">
-              <label for="emerg-nombre">Nombre Completo <span class="requerido">*</span></label>
-              <input type="text" id="emerg-nombre" name="emerg-nombre" placeholder="Nombre del familiar" required>
-            </div>
-            <div class="grupo">
-              <label for="emerg-tel">Teléfono <span class="requerido">*</span></label>
-              <input type="tel" id="emerg-tel" name="emerg-tel" placeholder="Ej. 987654321" required pattern="[0-9]{9,15}">
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>🏥 Información Médica</legend>
-          <div class="grupo">
-            <label for="seguro">Seguro Médico <span class="requerido">*</span></label>
-            <select id="seguro" name="seguro" required>
-              <option value="">-- Seleccione --</option>
-              <option value="essalud">EsSalud</option>
-              <option value="sis">SIS (Seguro Integral de Salud)</option>
-              <option value="privado">Seguro Privado</option>
-              <option value="ninguno">Ninguno (Particular)</option>
-            </select>
-          </div>
-          <div class="grupo">
-            <label for="alergias">Alergias conocidas</label>
-            <textarea id="alergias" name="alergias" placeholder="Ej. Penicilina, mariscos... (dejar en blanco si no tiene)" maxlength="300"></textarea>
-            <p class="grupo-nota">Máximo 300 caracteres</p>
-          </div>
-        </fieldset>
-
-        <div class="check-terminos">
-          <input type="checkbox" id="terminos" name="terminos" required>
-          <label for="terminos">He leído y acepto el tratamiento de mis datos personales conforme a la política de privacidad de ClinicaWeb. <span class="requerido">*</span></label>
-        </div>
-
-        <div class="acciones">
-          <button type="submit" class="btn-guardar">Guardar Registro</button>
-          <button type="reset" class="btn-limpiar">Limpiar</button>
-        </div>
-
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>ClinicaWeb</h4>
-        <p>Comprometidos con tu salud<br>y bienestar desde 2015.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Secciones</h4>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="brand" aria-label="ClinicaWeb — Inicio">
+        <span class="brand__mark" aria-hidden="true">+</span>
+        <span class="brand__name">Clinica<em>Web</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Principal">
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="../medicos/index.html">Médicos</a></li>
-          <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
           <li><a href="../servicios/index.html">Servicios</a></li>
+          <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
+          <li><a href="registro.html" aria-current="page">Pacientes</a></li>
           <li><a href="../contacto/index.html">Contacto</a></li>
         </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <p>📍 Av. Javier Prado 1234, Lima<br>📞 (01) 234-5678<br>✉️ info@clinicaweb.pe</p>
+      </nav>
+      <div class="site-header__right">
+        <span class="site-header__status">
+          <span class="dot" aria-hidden="true"></span>
+          Abierto · 07:00–20:00
+        </span>
+        <a href="../agenda/nueva-cita.html" class="btn btn--primary btn--sm">Agendar</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 ClinicaWeb — Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</p>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Migas de pan">
+    <div class="breadcrumb__inner">
+      <a href="../index.html">Inicio</a>
+      <span class="breadcrumb__sep">/</span>
+      <a href="registro.html">Pacientes</a>
+      <span class="breadcrumb__sep">/</span>
+      <span aria-current="page">Registro</span>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="page-intro">
+      <div class="page-intro__inner">
+        <div>
+          <div class="kicker page-intro__kicker">Pacientes · Nuevo registro</div>
+          <h1>Crea tu ficha de paciente.</h1>
+          <p class="page-intro__lead">
+            Completa tus datos una sola vez. Te permitirá agendar citas más rápido y mantener tu historial clínico actualizado.
+          </p>
+        </div>
+        <div class="page-intro__meta">
+          <div>Tiempo estimado · <strong>3 min</strong></div>
+          <div>Datos cifrados · TLS 1.3</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="banner-media" aria-hidden="true">
+      <div class="banner-media__inner">
+        <img src="../assets/img/registro-consulta.jpg"
+             alt="Consulta médica con paciente">
+        <div class="banner-media__overlay"></div>
+        <div class="banner-media__caption">
+          <span class="dot" aria-hidden="true"></span>
+          Datos protegidos · Ley N.° 29733
+        </div>
+      </div>
+    </div>
+
+    <section class="section" style="border-bottom:none;">
+      <div class="form-shell">
+        <div class="form-card">
+          <div class="form-card__head">
+            <h2>Registro de paciente</h2>
+            <p>Los campos con <span class="req">*</span> son obligatorios.</p>
+          </div>
+
+          <div class="alert alert--info" role="status">
+            <span class="alert__tag">Info</span>
+            <div>Tus datos serán tratados con total confidencialidad según la <strong>Ley N.° 29733</strong> de Protección de Datos Personales. No serán compartidos con terceros sin tu autorización.</div>
+          </div>
+
+          <form action="#" method="post" novalidate>
+
+            <fieldset class="form-fieldset">
+              <legend>01 · Datos personales</legend>
+              <div class="form-row">
+                <div class="field">
+                  <label for="nombres">Nombres <span class="req">*</span></label>
+                  <input type="text" id="nombres" name="nombres" placeholder="María del Carmen" required minlength="2" maxlength="60">
+                </div>
+                <div class="field">
+                  <label for="apellidos">Apellidos <span class="req">*</span></label>
+                  <input type="text" id="apellidos" name="apellidos" placeholder="García López" required minlength="2" maxlength="60">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="tipo-doc">Tipo de documento <span class="req">*</span></label>
+                  <select id="tipo-doc" name="tipo-doc" required>
+                    <option value="">— Seleccione —</option>
+                    <option value="dni">DNI</option>
+                    <option value="ce">Carné de Extranjería</option>
+                    <option value="pasaporte">Pasaporte</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="num-doc">N.° de documento <span class="req">*</span></label>
+                  <input type="text" id="num-doc" name="num-doc" placeholder="12345678" required minlength="8" maxlength="12" pattern="[0-9]{8,12}">
+                  <p class="field__hint">8 a 12 dígitos</p>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="fecha-nac">Fecha de nacimiento <span class="req">*</span></label>
+                  <input type="date" id="fecha-nac" name="fecha-nac" required max="2008-04-20">
+                </div>
+                <div class="field">
+                  <label for="grupo-sang">Grupo sanguíneo</label>
+                  <select id="grupo-sang" name="grupo-sang">
+                    <option value="">— No sé / No especifica —</option>
+                    <option value="a+">A+</option><option value="a-">A-</option>
+                    <option value="b+">B+</option><option value="b-">B-</option>
+                    <option value="ab+">AB+</option><option value="ab-">AB-</option>
+                    <option value="o+">O+</option><option value="o-">O-</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label>Sexo <span class="req">*</span></label>
+                <div class="radio-group">
+                  <label><input type="radio" name="sexo" value="M" required> Masculino</label>
+                  <label><input type="radio" name="sexo" value="F"> Femenino</label>
+                  <label><input type="radio" name="sexo" value="otro"> No especifica</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+              <legend>02 · Datos de contacto</legend>
+              <div class="field">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Av. Los Pinos 456, Miraflores" maxlength="150">
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="telefono">Teléfono <span class="req">*</span></label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="987654321" required pattern="[0-9]{9,15}">
+                </div>
+                <div class="field">
+                  <label for="email">Correo electrónico <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="maria@correo.com" required>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+              <legend>03 · Contacto de emergencia</legend>
+              <div class="form-row">
+                <div class="field">
+                  <label for="emerg-nombre">Nombre completo <span class="req">*</span></label>
+                  <input type="text" id="emerg-nombre" name="emerg-nombre" placeholder="Nombre del familiar" required>
+                </div>
+                <div class="field">
+                  <label for="emerg-tel">Teléfono <span class="req">*</span></label>
+                  <input type="tel" id="emerg-tel" name="emerg-tel" placeholder="987654321" required pattern="[0-9]{9,15}">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+              <legend>04 · Información médica</legend>
+              <div class="field">
+                <label for="seguro">Seguro médico <span class="req">*</span></label>
+                <select id="seguro" name="seguro" required>
+                  <option value="">— Seleccione —</option>
+                  <option value="essalud">EsSalud</option>
+                  <option value="sis">SIS · Seguro Integral de Salud</option>
+                  <option value="privado">Seguro privado</option>
+                  <option value="ninguno">Ninguno · Particular</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="alergias">Alergias conocidas</label>
+                <textarea id="alergias" name="alergias" placeholder="Ej. Penicilina, mariscos... (dejar en blanco si no tiene)" maxlength="300"></textarea>
+                <p class="field__hint">Máximo 300 caracteres</p>
+              </div>
+            </fieldset>
+
+            <div class="consent">
+              <input type="checkbox" id="terminos" name="terminos" required>
+              <label for="terminos">He leído y acepto el tratamiento de mis datos personales conforme a la política de privacidad de ClinicaWeb y a la Ley N.° 29733. <span class="req">*</span></label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary">Guardar registro</button>
+              <button type="reset" class="btn btn--ghost">Limpiar formulario</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="../index.html" class="brand">
+          <span class="brand__mark" aria-hidden="true">+</span>
+          <span class="brand__name">Clinica<em>Web</em></span>
+        </a>
+        <p>Atención médica integral en San Isidro, Lima. Comprometidos con tu salud y bienestar desde 2015.</p>
+      </div>
+      <div class="site-footer__col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="../medicos/index.html">Directorio médico</a></li>
+          <li><a href="../servicios/index.html">Especialidades</a></li>
+          <li><a href="../agenda/nueva-cita.html">Agendar cita</a></li>
+          <li><a href="registro.html">Registro paciente</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="../contacto/index.html">Contacto</a></li>
+          <li><a href="../contacto/index.html">Urgencias 24/7</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col site-footer__contact">
+        <h4>Contacto</h4>
+        <div class="row"><span class="lab">Dirección</span><span class="val">Av. Javier Prado 1234, San Isidro</span></div>
+        <div class="row"><span class="lab">Teléfono</span><span class="val">(01) 234-5678</span></div>
+        <div class="row"><span class="lab">Correo</span><span class="val">info@clinicaweb.pe</span></div>
+        <div class="row"><span class="lab">Horario</span><span class="val">Lun–Sáb · 07:00–20:00</span></div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 ClinicaWeb · Todos los derechos reservados</span>
+      <span>Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</span>
     </div>
   </footer>
 

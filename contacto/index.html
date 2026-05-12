@@ -3,134 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacta a ClinicaWeb: urgencias 24/7, citas, informes generales, laboratorio y farmacia.">
   <title>ClinicaWeb — Contacto</title>
-  <link rel="stylesheet" href="../css/contacto.css">
+  <link rel="stylesheet" href="../css/tokens.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <div class="logo-icono">+</div>
-      <span class="logo-texto">Clinica<span>Web</span></span>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="brand" aria-label="ClinicaWeb — Inicio">
+        <span class="brand__mark" aria-hidden="true">+</span>
+        <span class="brand__name">Clinica<em>Web</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Principal">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../medicos/index.html">Médicos</a></li>
+          <li><a href="../servicios/index.html">Servicios</a></li>
+          <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
+          <li><a href="../pacientes/registro.html">Pacientes</a></li>
+          <li><a href="index.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__right">
+        <span class="site-header__status">
+          <span class="dot" aria-hidden="true"></span>
+          Abierto · 07:00–20:00
+        </span>
+        <a href="../agenda/nueva-cita.html" class="btn btn--primary btn--sm">Agendar</a>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../medicos/index.html">Médicos</a></li>
-        <li><a href="../pacientes/registro.html">Pacientes</a></li>
-        <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
-        <li><a href="../servicios/index.html">Servicios</a></li>
-        <li><a href="index.html" class="activo">Contacto</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <div class="breadcrumb">
-    <a href="../index.html">Inicio</a><span>›</span> Contacto
-  </div>
+  <nav class="breadcrumb" aria-label="Migas de pan">
+    <div class="breadcrumb__inner">
+      <a href="../index.html">Inicio</a>
+      <span class="breadcrumb__sep">/</span>
+      <span aria-current="page">Contacto</span>
+    </div>
+  </nav>
 
-  <section class="banner">
-    <h1>📞 Contáctanos</h1>
-    <p>Estamos aquí para responder tus consultas y ayudarte</p>
-  </section>
+  <main>
 
-  <section class="seccion-gris">
-    <div class="contenedor">
-      <h2>Información de Contacto</h2>
-      <div class="linea"></div>
-      <div class="cards">
-        <div class="card">
-          <div class="card-icono">📍</div>
-          <h3>Dirección</h3>
-          <p>Av. Javier Prado Este 1234<br>San Isidro, Lima — Perú</p>
+    <section class="page-intro">
+      <div class="page-intro__inner">
+        <div>
+          <div class="kicker page-intro__kicker">Contacto · Atención al paciente</div>
+          <h1>Estamos para responderte.</h1>
+          <p class="page-intro__lead">
+            Múltiples canales según el tipo de consulta. Urgencias atienden 24/7. Mensajes generales reciben respuesta en máximo 24 horas hábiles.
+          </p>
         </div>
-        <div class="card">
-          <div class="card-icono">📞</div>
-          <h3>Teléfonos</h3>
-          <p>Central: (01) 234-5678<br>Emergencias: (01) 234-5699<br>WhatsApp: +51 987 654 321</p>
+        <div class="page-intro__meta">
+          <div>Urgencias · <strong>(01) 234-5699</strong></div>
+          <div>WhatsApp · +51 987 654 321</div>
         </div>
-        <div class="card">
-          <div class="card-icono">✉️</div>
-          <h3>Correo Electrónico</h3>
-          <p>info@clinicaweb.pe<br>citas@clinicaweb.pe<br>urgencias@clinicaweb.pe</p>
-        </div>
-        <div class="card">
-          <div class="card-icono">🕐</div>
-          <h3>Horario de Atención</h3>
-          <p>Lunes – Viernes: 7:00 – 20:00<br>Sábado: 7:00 – 14:00<br>Urgencias: 24 horas</p>
+      </div>
+    </section>
+
+    <div class="banner-media" aria-hidden="true">
+      <div class="banner-media__inner">
+        <img src="../assets/img/edificio.jpg"
+             alt="Edificio de la clínica en San Isidro">
+        <div class="banner-media__overlay"></div>
+        <div class="banner-media__caption">
+          <span class="dot" aria-hidden="true"></span>
+          Av. Javier Prado 1234 · San Isidro
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="seccion">
-    <div class="form-contenedor">
-      <h2 class="form-titulo">Envíanos un Mensaje</h2>
-      <p class="form-subtitulo">Te responderemos en máximo 24 horas hábiles. Campos con <span class="requerido">*</span> son obligatorios.</p>
-
-      <form action="#" method="post" novalidate>
-
-        <fieldset>
-          <legend>👤 Tus Datos</legend>
-          <div class="fila">
-            <div class="grupo">
-              <label for="nombre">Nombre Completo <span class="requerido">*</span></label>
-              <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana Martínez" required minlength="3" maxlength="80">
-            </div>
-            <div class="grupo">
-              <label for="email">Correo Electrónico <span class="requerido">*</span></label>
-              <input type="email" id="email" name="email" placeholder="Ej. ana@correo.com" required>
-            </div>
-          </div>
-          <div class="grupo">
-            <label for="telefono">Teléfono de Contacto</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="Ej. 987654321" pattern="[0-9]{9,15}">
-            <p class="grupo-nota">Opcional — para que te llamemos si es necesario</p>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>💬 Tu Mensaje</legend>
-          <div class="grupo">
-            <label for="asunto">Asunto <span class="requerido">*</span></label>
-            <select id="asunto" name="asunto" required>
-              <option value="">-- Seleccione el tipo de consulta --</option>
-              <option value="consulta">Consulta general</option>
-              <option value="cita">Información sobre citas</option>
-              <option value="servicios">Información sobre servicios</option>
-              <option value="queja">Queja o reclamo</option>
-              <option value="sugerencia">Sugerencia</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-          <div class="grupo">
-            <label for="mensaje">Mensaje <span class="requerido">*</span></label>
-            <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu consulta, queja o sugerencia..." required minlength="20" maxlength="1000"></textarea>
-            <p class="grupo-nota">Mínimo 20 caracteres, máximo 1000</p>
-          </div>
-        </fieldset>
-
-        <div class="check-privacidad">
-          <input type="checkbox" id="privacidad" name="privacidad" required>
-          <label for="privacidad">He leído y acepto la política de privacidad y el tratamiento de mis datos personales. <span class="requerido">*</span></label>
+    <!-- INFO BLOCKS -->
+    <section class="section">
+      <div class="section__head">
+        <div>
+          <div class="kicker">01 — Información de contacto</div>
+          <h2>Cómo y dónde encontrarnos.</h2>
         </div>
+      </div>
 
-        <div class="acciones">
-          <button type="submit" class="btn-enviar">Enviar Mensaje</button>
-          <button type="reset" class="btn-limpiar">Limpiar</button>
+      <div class="grid grid--4 grid--bordered">
+
+        <article class="tile">
+          <div class="kicker">Dirección</div>
+          <div class="tile__list">
+            <span class="val">Av. Javier Prado Este 1234</span>
+            <span class="val">San Isidro · Lima · Perú</span>
+            <span class="lab">Referencia</span>
+            <span class="val">A 2 cuadras de la estación Javier Prado</span>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="kicker">Teléfonos</div>
+          <div class="tile__list">
+            <span class="lab">Central</span><span class="val">(01) 234-5678</span>
+            <span class="lab">Urgencias</span><span class="val">(01) 234-5699</span>
+            <span class="lab">WhatsApp</span><span class="val">+51 987 654 321</span>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="kicker">Correo</div>
+          <div class="tile__list">
+            <span class="lab">Informes</span><span class="val"><a href="mailto:info@clinicaweb.pe">info@clinicaweb.pe</a></span>
+            <span class="lab">Citas</span><span class="val"><a href="mailto:citas@clinicaweb.pe">citas@clinicaweb.pe</a></span>
+            <span class="lab">Urgencias</span><span class="val"><a href="mailto:urgencias@clinicaweb.pe">urgencias@clinicaweb.pe</a></span>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="kicker">Horario</div>
+          <div class="tile__list">
+            <span class="lab">Lun–Vie</span><span class="val">07:00 – 20:00</span>
+            <span class="lab">Sábado</span><span class="val">07:00 – 14:00</span>
+            <span class="lab">Domingo</span><span class="val">Cerrado</span>
+            <span class="lab">Urgencias</span><span class="val">24 horas / 7 días</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- LÍNEAS DE ATENCIÓN -->
+    <section class="section section--alt">
+      <div class="section__head">
+        <div>
+          <div class="kicker">Tabla 01 — Líneas por área</div>
+          <h2>Elige el canal según tu consulta.</h2>
+          <p class="section__lead">Cada área tiene horario y prioridad propios.</p>
         </div>
+        <div class="section__meta">5 áreas</div>
+      </div>
 
-      </form>
-    </div>
-  </section>
-
-  <section class="seccion-gris">
-    <div class="contenedor">
-      <h2>Líneas de Atención por Área</h2>
-      <div class="linea"></div>
-      <div class="tabla-wrapper">
-        <table>
-          <caption>Tabla: Directorio de contactos por área — ClinicaWeb 2026</caption>
+      <div class="table-wrap table-wrap--scroll">
+        <table class="data-table">
+          <caption>Directorio de contactos por área — ClinicaWeb 2026</caption>
           <thead>
             <tr>
               <th scope="col">Área</th>
@@ -143,74 +151,168 @@
           <tbody>
             <tr>
               <td><strong>Urgencias y Emergencias</strong></td>
-              <td>(01) 234-5699</td>
-              <td>urgencias@clinicaweb.pe</td>
-              <td>24 horas / 7 días</td>
-              <td><span class="badge badge-verde">Alta</span></td>
+              <td class="cmp">(01) 234-5699</td>
+              <td><a href="mailto:urgencias@clinicaweb.pe">urgencias@clinicaweb.pe</a></td>
+              <td class="time">24 h · 7 días</td>
+              <td><span class="badge badge--danger">Alta</span></td>
             </tr>
             <tr>
               <td><strong>Citas y Agenda</strong></td>
-              <td>(01) 234-5678 anexo 1</td>
-              <td>citas@clinicaweb.pe</td>
-              <td>Lun–Vie 7:00–19:00</td>
-              <td><span class="badge badge-azul">Media</span></td>
+              <td class="cmp">(01) 234-5678 · anexo 1</td>
+              <td><a href="mailto:citas@clinicaweb.pe">citas@clinicaweb.pe</a></td>
+              <td class="time">Lun–Vie · 07:00–19:00</td>
+              <td><span class="badge badge--info">Media</span></td>
             </tr>
             <tr>
               <td><strong>Informes Generales</strong></td>
-              <td>(01) 234-5678 anexo 2</td>
-              <td>info@clinicaweb.pe</td>
-              <td>Lun–Vie 8:00–18:00</td>
-              <td><span class="badge badge-azul">Media</span></td>
+              <td class="cmp">(01) 234-5678 · anexo 2</td>
+              <td><a href="mailto:info@clinicaweb.pe">info@clinicaweb.pe</a></td>
+              <td class="time">Lun–Vie · 08:00–18:00</td>
+              <td><span class="badge badge--info">Media</span></td>
             </tr>
             <tr>
               <td><strong>Laboratorio y Resultados</strong></td>
-              <td>(01) 234-5678 anexo 3</td>
-              <td>lab@clinicaweb.pe</td>
-              <td>Lun–Sáb 7:00–17:00</td>
-              <td><span class="badge badge-gris">Normal</span></td>
+              <td class="cmp">(01) 234-5678 · anexo 3</td>
+              <td><a href="mailto:lab@clinicaweb.pe">lab@clinicaweb.pe</a></td>
+              <td class="time">Lun–Sáb · 07:00–17:00</td>
+              <td><span class="badge badge--muted">Normal</span></td>
             </tr>
             <tr>
               <td><strong>Farmacia</strong></td>
-              <td>(01) 234-5678 anexo 4</td>
-              <td>farmacia@clinicaweb.pe</td>
-              <td>Lun–Sáb 7:00–20:00</td>
-              <td><span class="badge badge-gris">Normal</span></td>
+              <td class="cmp">(01) 234-5678 · anexo 4</td>
+              <td><a href="mailto:farmacia@clinicaweb.pe">farmacia@clinicaweb.pe</a></td>
+              <td class="time">Lun–Sáb · 07:00–20:00</td>
+              <td><span class="badge badge--muted">Normal</span></td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="cta">
-    <h2>¿Prefieres una cita directamente?</h2>
-    <p>Usa nuestro formulario de agendamiento y elige tu especialidad</p>
-    <a href="../agenda/nueva-cita.html" class="btn-cta">Agendar Cita</a>
-  </section>
-
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>ClinicaWeb</h4>
-        <p>Comprometidos con tu salud<br>y bienestar desde 2015.</p>
+    <!-- FORM CONTACTO -->
+    <section class="section">
+      <div class="section__head">
+        <div>
+          <div class="kicker">02 — Envíanos un mensaje</div>
+          <h2>Formulario de contacto.</h2>
+          <p class="section__lead">Te responderemos en máximo 24 horas hábiles.</p>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Secciones</h4>
+
+      <div class="form-shell">
+        <div class="form-card">
+
+          <form action="#" method="post" novalidate>
+
+            <fieldset class="form-fieldset">
+              <legend>01 · Tus datos</legend>
+              <div class="form-row">
+                <div class="field">
+                  <label for="nombre">Nombre completo <span class="req">*</span></label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Ana Martínez" required minlength="3" maxlength="80">
+                </div>
+                <div class="field">
+                  <label for="email">Correo electrónico <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="ana@correo.com" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="telefono">Teléfono de contacto</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="987654321" pattern="[0-9]{9,15}">
+                <p class="field__hint">Opcional — para llamarte si lo necesitamos</p>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+              <legend>02 · Tu mensaje</legend>
+              <div class="field">
+                <label for="asunto">Asunto <span class="req">*</span></label>
+                <select id="asunto" name="asunto" required>
+                  <option value="">— Seleccione el tipo de consulta —</option>
+                  <option value="consulta">Consulta general</option>
+                  <option value="cita">Información sobre citas</option>
+                  <option value="servicios">Información sobre servicios</option>
+                  <option value="queja">Queja o reclamo</option>
+                  <option value="sugerencia">Sugerencia</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="mensaje">Mensaje <span class="req">*</span></label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu consulta, queja o sugerencia..." required minlength="20" maxlength="1000"></textarea>
+                <p class="field__hint">Mínimo 20 caracteres, máximo 1000</p>
+              </div>
+            </fieldset>
+
+            <div class="consent">
+              <input type="checkbox" id="privacidad" name="privacidad" required>
+              <label for="privacidad">He leído y acepto la política de privacidad y el tratamiento de mis datos personales según la Ley N.° 29733. <span class="req">*</span></label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary">Enviar mensaje</button>
+              <button type="reset" class="btn btn--ghost">Limpiar formulario</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-strip">
+      <div class="cta-strip__inner">
+        <div>
+          <h2>¿Prefieres agendar directamente?</h2>
+          <p>Reserva tu cita en línea y elige especialidad, médico y horario.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="../agenda/nueva-cita.html" class="btn btn--primary btn--lg">Agendar cita</a>
+          <a href="../servicios/index.html" class="btn btn--secondary btn--lg">Ver servicios</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="../index.html" class="brand">
+          <span class="brand__mark" aria-hidden="true">+</span>
+          <span class="brand__name">Clinica<em>Web</em></span>
+        </a>
+        <p>Atención médica integral en San Isidro, Lima. Comprometidos con tu salud y bienestar desde 2015.</p>
+      </div>
+      <div class="site-footer__col">
+        <h4>Servicios</h4>
         <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="../medicos/index.html">Médicos</a></li>
-          <li><a href="../pacientes/registro.html">Pacientes</a></li>
-          <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
-          <li><a href="../servicios/index.html">Servicios</a></li>
+          <li><a href="../medicos/index.html">Directorio médico</a></li>
+          <li><a href="../servicios/index.html">Especialidades</a></li>
+          <li><a href="../agenda/nueva-cita.html">Agendar cita</a></li>
+          <li><a href="../pacientes/registro.html">Registro paciente</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="site-footer__col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="index.html">Contacto</a></li>
+          <li><a href="index.html">Urgencias 24/7</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col site-footer__contact">
         <h4>Contacto</h4>
-        <p>📍 Av. Javier Prado 1234, Lima<br>📞 (01) 234-5678<br>✉️ info@clinicaweb.pe<br>🕐 Lun–Sáb: 7:00 – 20:00</p>
+        <div class="row"><span class="lab">Dirección</span><span class="val">Av. Javier Prado 1234, San Isidro</span></div>
+        <div class="row"><span class="lab">Teléfono</span><span class="val">(01) 234-5678</span></div>
+        <div class="row"><span class="lab">Correo</span><span class="val">info@clinicaweb.pe</span></div>
+        <div class="row"><span class="lab">Horario</span><span class="val">Lun–Sáb · 07:00–20:00</span></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 ClinicaWeb — Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</p>
+    <div class="site-footer__bottom">
+      <span>© 2026 ClinicaWeb · Todos los derechos reservados</span>
+      <span>Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</span>
     </div>
   </footer>
 

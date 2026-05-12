@@ -3,156 +3,337 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClinicaWeb — Inicio</title>
-  <link rel="stylesheet" href="css/inicio.css">
+  <meta name="description" content="ClinicaWeb — atención médica integral con 15+ especialidades. Agenda en línea, médicos certificados, convenios EsSalud y SIS.">
+  <title>ClinicaWeb — Atención médica integral</title>
+  <link rel="stylesheet" href="css/tokens.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <div class="logo-icono">+</div>
-      <span class="logo-texto">Clinica<span>Web</span></span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="activo">Inicio</a></li>
-        <li><a href="medicos/index.html">Médicos</a></li>
-        <li><a href="pacientes/registro.html">Pacientes</a></li>
-        <li><a href="agenda/nueva-cita.html">Agenda</a></li>
-        <li><a href="servicios/index.html">Servicios</a></li>
-        <li><a href="contacto/index.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>Tu salud, nuestra prioridad</h1>
-    <p>Contamos con un equipo de médicos especializados para brindarte la mejor atención. Agenda tu cita de forma rápida y sencilla.</p>
-    <a href="agenda/nueva-cita.html" class="btn btn-verde">Agendar Cita</a>
-    &nbsp;&nbsp;
-    <a href="medicos/index.html" class="btn btn-borde-blanco">Ver Médicos</a>
-  </section>
-
-  <section class="seccion">
-    <h2>Nuestros Servicios</h2>
-    <div class="linea"></div>
-    <p class="subtitulo">Ofrecemos atención médica integral con las mejores especialidades</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icono">🫀</div>
-        <h3>Cardiología</h3>
-        <p>Diagnóstico y tratamiento de enfermedades del corazón y sistema cardiovascular.</p>
-      </div>
-      <div class="card">
-        <div class="card-icono">🧒</div>
-        <h3>Pediatría</h3>
-        <p>Atención especializada para niños y adolescentes en todas las etapas de su desarrollo.</p>
-      </div>
-      <div class="card">
-        <div class="card-icono">🦴</div>
-        <h3>Traumatología</h3>
-        <p>Tratamiento de lesiones y enfermedades del aparato locomotor.</p>
-      </div>
-      <div class="card">
-        <div class="card-icono">🧠</div>
-        <h3>Neurología</h3>
-        <p>Diagnóstico y tratamiento de enfermedades del sistema nervioso central.</p>
-      </div>
-      <div class="card">
-        <div class="card-icono">👁️</div>
-        <h3>Oftalmología</h3>
-        <p>Cuidado integral de la salud visual y enfermedades oculares.</p>
-      </div>
-      <div class="card">
-        <div class="card-icono">🩻</div>
-        <h3>Radiología</h3>
-        <p>Estudios de imagen diagnóstica: rayos X, ecografías y tomografías.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion-gris">
-    <h2>¿Por qué elegirnos?</h2>
-    <div class="linea"></div>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icono">🏥</div>
-        <h3>Infraestructura moderna</h3>
-        <p>Instalaciones con tecnología de última generación para un diagnóstico preciso.</p>
-      </div>
-      <div class="card">
-        <div class="card-icono">👨‍⚕️</div>
-        <h3>Médicos certificados</h3>
-        <p>Especialistas con amplia experiencia y certificaciones nacionales e internacionales.</p>
-      </div>
-      <div class="card">
-        <div class="card-icono">📅</div>
-        <h3>Citas rápidas</h3>
-        <p>Obtén tu cita en minutos a través de nuestro sistema de agenda en línea.</p>
-      </div>
-      <div class="card">
-        <div class="card-icono">💊</div>
-        <h3>Atención integral</h3>
-        <p>Más de 15 especialidades médicas disponibles en un solo lugar.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion">
-    <h2>ClinicaWeb en números</h2>
-    <div class="linea"></div>
-    <div class="cards">
-      <div class="card card-stat" style="background-color: #0D3B66;">
-        <div class="numero">+5,000</div>
-        <h3>Pacientes atendidos</h3>
-      </div>
-      <div class="card card-stat" style="background-color: #1A6EA8;">
-        <div class="numero">30+</div>
-        <h3>Médicos especialistas</h3>
-      </div>
-      <div class="card card-stat" style="background-color: #2E8B57;">
-        <div class="numero">15+</div>
-        <h3>Especialidades</h3>
-      </div>
-      <div class="card card-stat" style="background-color: #0D3B66;">
-        <div class="numero">10</div>
-        <h3>Años de experiencia</h3>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <h2>¿Listo para tu consulta?</h2>
-    <p>Agenda tu cita hoy y recibe atención de calidad con nuestros especialistas</p>
-    <a href="agenda/nueva-cita.html" class="btn-azul">Solicitar Cita Ahora</a>
-  </section>
-
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>ClinicaWeb</h4>
-        <p>Comprometidos con tu salud<br>y bienestar desde 2015.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Secciones</h4>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="brand" aria-label="ClinicaWeb — Inicio">
+        <span class="brand__mark" aria-hidden="true">+</span>
+        <span class="brand__name">Clinica<em>Web</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Principal">
         <ul>
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
           <li><a href="medicos/index.html">Médicos</a></li>
-          <li><a href="pacientes/registro.html">Pacientes</a></li>
-          <li><a href="agenda/nueva-cita.html">Agenda</a></li>
           <li><a href="servicios/index.html">Servicios</a></li>
+          <li><a href="agenda/nueva-cita.html">Agenda</a></li>
+          <li><a href="pacientes/registro.html">Pacientes</a></li>
           <li><a href="contacto/index.html">Contacto</a></li>
         </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <p>📍 Av. Javier Prado 1234, Lima<br>
-           📞 (01) 234-5678<br>
-           ✉️ info@clinicaweb.pe<br>
-           🕐 Lun–Sáb: 7:00 – 20:00</p>
+      </nav>
+      <div class="site-header__right">
+        <span class="site-header__status" aria-label="Estado de atención">
+          <span class="dot" aria-hidden="true"></span>
+          Abierto · 07:00–20:00
+        </span>
+        <a href="agenda/nueva-cita.html" class="btn btn--primary btn--sm">Agendar</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 ClinicaWeb — Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</p>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <span class="hero__status">
+            <span class="dot" aria-hidden="true"></span>
+            Atendiendo hoy · Lun–Sáb 07:00–20:00
+          </span>
+          <h1 id="hero-title">
+            Atención médica integral.<br>
+            <em>Sin esperas, sin trámites.</em>
+          </h1>
+          <p class="hero__lead">
+            Agenda una consulta con cualquiera de nuestras 15 especialidades en menos de 90 segundos.
+            Convenios con EsSalud y SIS. Resultados de laboratorio en el día.
+          </p>
+          <div class="hero__actions">
+            <a href="agenda/nueva-cita.html" class="btn btn--primary btn--lg">Agendar cita</a>
+            <a href="medicos/index.html" class="btn btn--secondary btn--lg">Ver directorio médico</a>
+          </div>
+        </div>
+
+        <figure class="hero__media" aria-label="Imagen referencial — sala de consulta">
+          <img
+            src="assets/img/hero-consultorio.jpg"
+            alt="Pasillo luminoso de la clínica con consultorios a ambos lados"
+            loading="eager">
+          <figcaption class="hero__media-tag">
+            <span class="dot" aria-hidden="true"></span>
+            Sede San Isidro · 8 consultorios
+          </figcaption>
+        </figure>
+
+        <div class="hero__bench" role="list" aria-label="Indicadores ClinicaWeb">
+          <div class="hero__bench-cell" role="listitem">
+            <div class="hero__bench-num">5,210<span style="color:var(--muted);font-size:14px;">+</span></div>
+            <div class="hero__bench-label">Pacientes atendidos en 2025</div>
+          </div>
+          <div class="hero__bench-cell" role="listitem">
+            <div class="hero__bench-num">31</div>
+            <div class="hero__bench-label">Médicos especialistas</div>
+          </div>
+          <div class="hero__bench-cell" role="listitem">
+            <div class="hero__bench-num">15</div>
+            <div class="hero__bench-label">Especialidades disponibles</div>
+          </div>
+          <div class="hero__bench-cell" role="listitem">
+            <div class="hero__bench-num">10<span style="color:var(--muted);font-size:14px;"> años</span></div>
+            <div class="hero__bench-label">Operando desde 2015</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section class="section" aria-labelledby="esp-title">
+      <div class="section__head">
+        <div>
+          <div class="kicker">01 — Especialidades</div>
+          <h2 id="esp-title">Atención por especialidad médica</h2>
+          <p class="section__lead">Selecciona una especialidad para conocer médicos, duración promedio y agendar.</p>
+        </div>
+        <div class="section__meta">6 destacadas · 15 totales</div>
+      </div>
+
+      <div class="grid grid--3 grid--bordered">
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/cardiologia.jpg"
+                 alt="Monitor cardíaco mostrando un electrocardiograma" loading="lazy">
+            <span class="tile__media-badge">/01</span>
+          </div>
+          <div class="tile__head">
+            <h3>Cardiología</h3>
+            <span class="tile__num">EKG</span>
+          </div>
+          <p>Diagnóstico y tratamiento de enfermedades del corazón y sistema cardiovascular. Incluye electrocardiograma.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">45 min</span> · <span class="tile__price">S/ 120</span></span>
+            <a href="agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/pediatria.jpg"
+                 alt="Sala de espera de pediatría iluminada con luz natural" loading="lazy">
+            <span class="tile__media-badge">/02</span>
+          </div>
+          <div class="tile__head">
+            <h3>Pediatría</h3>
+            <span class="tile__num">0–17</span>
+          </div>
+          <p>Atención especializada para niños y adolescentes con control de crecimiento y vacunación.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">30 min</span> · <span class="tile__price">S/ 80</span></span>
+            <a href="agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/traumatologia.jpg"
+                 alt="Examen de imagen óseo en una sala de traumatología" loading="lazy">
+            <span class="tile__media-badge">/03</span>
+          </div>
+          <div class="tile__head">
+            <h3>Traumatología</h3>
+            <span class="tile__num">OST</span>
+          </div>
+          <p>Tratamiento de lesiones y enfermedades del aparato locomotor. Evaluación musculoesquelética completa.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">40 min</span> · <span class="tile__price">S/ 110</span></span>
+            <a href="agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/neurologia.jpg"
+                 alt="Tomografía cerebral en monitor médico" loading="lazy">
+            <span class="tile__media-badge">/04</span>
+          </div>
+          <div class="tile__head">
+            <h3>Neurología</h3>
+            <span class="tile__num">NEU</span>
+          </div>
+          <p>Diagnóstico de enfermedades del sistema nervioso central y periférico, cefaleas y trastornos del sueño.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">50 min</span> · <span class="tile__price">S/ 140</span></span>
+            <a href="agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/oftalmologia.jpg"
+                 alt="Equipo de revisión visual en consultorio oftalmológico" loading="lazy">
+            <span class="tile__media-badge">/05</span>
+          </div>
+          <div class="tile__head">
+            <h3>Oftalmología</h3>
+            <span class="tile__num">OFT</span>
+          </div>
+          <p>Examen visual completo, fondo de ojo y evaluación de presión intraocular para detección de glaucoma.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">35 min</span> · <span class="tile__price">S/ 90</span></span>
+            <a href="agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/medicina-general.jpg"
+                 alt="Sala de imagenología con equipo de rayos X" loading="lazy">
+            <span class="tile__media-badge">/06</span>
+          </div>
+          <div class="tile__head">
+            <h3>Radiología</h3>
+            <span class="tile__num">IMG</span>
+          </div>
+          <p>Estudios de imagen diagnóstica: rayos X, ecografías y tomografías con informe en el día.</p>
+          <div class="tile__foot">
+            <span><span style="color:var(--muted)">20 min</span> · <span class="tile__price">S/ 70</span></span>
+            <a href="agenda/nueva-cita.html" class="tile__cta">Agendar</a>
+          </div>
+        </article>
+      </div>
+
+      <div style="max-width:var(--container-wide);margin:var(--s-5) auto 0;padding:0 var(--s-5);">
+        <a href="servicios/index.html" class="action-link">Ver catálogo completo de 15 especialidades</a>
+      </div>
+    </section>
+
+    <!-- POR QUÉ -->
+    <section class="section section--alt" aria-labelledby="razones-title">
+      <div class="section__head">
+        <div>
+          <div class="kicker">02 — Por qué ClinicaWeb</div>
+          <h2 id="razones-title">Diseñada para resolver tu consulta sin perder el día.</h2>
+          <p class="section__lead">Procesos pensados para que entres, te atiendan y salgas con un resultado claro.</p>
+        </div>
+      </div>
+
+      <div class="feature-row feature-row--reverse">
+        <div class="feature-row__copy">
+          <h3>Una clínica que respeta tu tiempo.</h3>
+          <p>Reservás en línea, llegás a la hora exacta de tu cita y recibís los resultados sin volver. Los procesos administrativos no son tu problema — son el nuestro.</p>
+          <ul class="feature-row__list">
+            <li><strong>Agenda en línea, sin colas.</strong> Reserva en menos de 90 segundos y elegí el horario que te conviene. Confirmación por correo en 2 horas hábiles.</li>
+            <li><strong>Convenios EsSalud y SIS.</strong> 10 de nuestras 15 especialidades aceptan convenios públicos. Atención particular desde S/ 70.</li>
+            <li><strong>Resultados el mismo día.</strong> Laboratorio e imagenología con informes entre 4 y 24 horas. Te avisamos por WhatsApp cuando estén listos.</li>
+          </ul>
+        </div>
+        <figure class="feature-row__media" aria-label="Recepción de la clínica">
+          <img src="assets/img/recepcion.jpg"
+               alt="Recepción de la clínica con personal atendiendo a un paciente" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- INDICADORES -->
+    <section class="section" aria-labelledby="metric-title">
+      <div class="section__head">
+        <div>
+          <div class="kicker">03 — Indicadores 2025</div>
+          <h2 id="metric-title">ClinicaWeb en números.</h2>
+          <p class="section__lead">Cifras del periodo enero–diciembre 2025.</p>
+        </div>
+      </div>
+
+      <div class="grid grid--4 grid--bordered">
+        <article class="tile tile--stat">
+          <div class="kicker">Pacientes</div>
+          <div class="tile__num--big">5,210<span style="color:var(--muted);font-size:18px;">+</span></div>
+          <p>Consultas presenciales completadas durante 2025.</p>
+        </article>
+        <article class="tile tile--stat">
+          <div class="kicker">Equipo médico</div>
+          <div class="tile__num--big">31</div>
+          <p>Especialistas con CMP vigente y experiencia clínica.</p>
+        </article>
+        <article class="tile tile--stat">
+          <div class="kicker">Especialidades</div>
+          <div class="tile__num--big">15</div>
+          <p>Áreas clínicas operativas, incluyendo imagenología.</p>
+        </article>
+        <article class="tile tile--stat">
+          <div class="kicker">Trayectoria</div>
+          <div class="tile__num--big">10<span style="color:var(--muted);font-size:18px;"> años</span></div>
+          <p>Operando en San Isidro desde el año 2015.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- BANNER MEDIA -->
+    <div class="banner-media" aria-hidden="true">
+      <div class="banner-media__inner">
+        <img src="assets/img/edificio.jpg"
+             alt="Vista del exterior de la clínica en San Isidro">
+        <div class="banner-media__overlay"></div>
+        <div class="banner-media__caption">
+          <span class="dot" aria-hidden="true"></span>
+          Av. Javier Prado 1234 · San Isidro, Lima
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-strip" aria-labelledby="cta-title">
+      <div class="cta-strip__inner">
+        <div>
+          <h2 id="cta-title">Agenda tu consulta hoy.</h2>
+          <p>El formulario toma menos de 90 segundos. Te confirmamos por correo en 2 horas hábiles.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="agenda/nueva-cita.html" class="btn btn--primary btn--lg">Solicitar cita</a>
+          <a href="contacto/index.html" class="btn btn--secondary btn--lg">Contactar</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="index.html" class="brand">
+          <span class="brand__mark" aria-hidden="true">+</span>
+          <span class="brand__name">Clinica<em>Web</em></span>
+        </a>
+        <p>Atención médica integral en San Isidro, Lima. Comprometidos con tu salud y bienestar desde 2015.</p>
+      </div>
+      <div class="site-footer__col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="medicos/index.html">Directorio médico</a></li>
+          <li><a href="servicios/index.html">Especialidades</a></li>
+          <li><a href="agenda/nueva-cita.html">Agendar cita</a></li>
+          <li><a href="pacientes/registro.html">Registro paciente</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="contacto/index.html">Contacto</a></li>
+          <li><a href="contacto/index.html">Urgencias 24/7</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col site-footer__contact">
+        <h4>Contacto</h4>
+        <div class="row"><span class="lab">Dirección</span><span class="val">Av. Javier Prado 1234, San Isidro</span></div>
+        <div class="row"><span class="lab">Teléfono</span><span class="val">(01) 234-5678</span></div>
+        <div class="row"><span class="lab">Correo</span><span class="val">info@clinicaweb.pe</span></div>
+        <div class="row"><span class="lab">Horario</span><span class="val">Lun–Sáb · 07:00–20:00</span></div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 ClinicaWeb · Todos los derechos reservados</span>
+      <span>Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</span>
     </div>
   </footer>
 
