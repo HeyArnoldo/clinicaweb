@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel de indicadores de ClinicaWeb: métricas del cuerpo médico, catálogo y costos calculadas en tiempo real con JavaScript.">
+  <title>ClinicaWeb — Panel de indicadores</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="brand" aria-label="ClinicaWeb — Inicio">
+        <span class="brand__mark" aria-hidden="true">+</span>
+        <span class="brand__name">Clinica<em>Web</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Principal">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../medicos/index.html">Médicos</a></li>
+          <li><a href="../servicios/index.html">Servicios</a></li>
+          <li><a href="../agenda/nueva-cita.html">Agenda</a></li>
+          <li><a href="../pacientes/registro.html">Pacientes</a></li>
+          <li><a href="../contacto/index.html">Contacto</a></li>
+          <li><a href="index.html" aria-current="page">Panel</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__right">
+        <span class="site-header__status">
+          <span class="dot" aria-hidden="true"></span>
+          Abierto · 07:00–20:00
+        </span>
+        <a href="../agenda/nueva-cita.html" class="btn btn--primary btn--sm">Agendar</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Migas de pan">
+    <div class="breadcrumb__inner">
+      <a href="../index.html">Inicio</a>
+      <span class="breadcrumb__sep">/</span>
+      <span aria-current="page">Panel de indicadores</span>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="page-intro">
+      <div class="page-intro__inner">
+        <div>
+          <div class="kicker page-intro__kicker">Panel · Indicadores en vivo</div>
+          <h1>Tablero de gestión de la clínica.</h1>
+          <p class="page-intro__lead">
+            Todas las cifras de este panel se calculan en tiempo real con JavaScript a partir de los datos del cuerpo médico y el catálogo de servicios. Usa los controles para filtrar y reordenar.
+          </p>
+        </div>
+        <div class="page-intro__meta">
+          <div>Datos · <strong>tiempo real</strong></div>
+          <div>Calculado en el navegador</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPIs -->
+    <section class="section" aria-labelledby="kpi-title">
+      <div class="section__head">
+        <div>
+          <div class="kicker">01 — Indicadores clave</div>
+          <h2 id="kpi-title">Resumen operativo.</h2>
+          <p class="section__lead">Métricas calculadas con funciones de arrays (reduce, filter, map).</p>
+        </div>
+        <div class="section__meta" id="kpi-context">—</div>
+      </div>
+      <div class="grid grid--4 grid--bordered" id="kpi-grid" role="list" aria-label="Indicadores clave"></div>
+    </section>
+
+    <!-- CONTROLES + GRÁFICO DE BARRAS -->
+    <section class="section section--alt" aria-labelledby="bar-title">
+      <div class="section__head">
+        <div>
+          <div class="kicker">02 — Precio por especialidad</div>
+          <h2 id="bar-title">Comparativa de tarifas.</h2>
+          <p class="section__lead">Filtra por convenio y reordena. El gráfico y los indicadores se recalculan al instante.</p>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <label class="filter-bar__label" for="dash-convenio">Convenio</label>
+        <select class="filter-bar__select" id="dash-convenio">
+          <option value="">Todos</option>
+          <option value="ambos">EsSalud · SIS</option>
+          <option value="essalud">Solo EsSalud</option>
+          <option value="particular">Particular</option>
+        </select>
+        <label class="filter-bar__label" for="dash-sort">Orden</label>
+        <select class="filter-bar__select" id="dash-sort">
+          <option value="desc">Precio: mayor a menor</option>
+          <option value="asc">Precio: menor a mayor</option>
+        </select>
+        <span class="filter-bar__count" id="bar-count"></span>
+      </div>
+
+      <div class="dash-panel">
+        <div class="bar-chart" id="bar-chart" role="img" aria-label="Gráfico de barras de precio por especialidad"></div>
+      </div>
+    </section>
+
+    <!-- DONUT ESTADO MÉDICO + TOP -->
+    <section class="section" aria-labelledby="mix-title">
+      <div class="section__head">
+        <div>
+          <div class="kicker">03 — Cuerpo médico y ranking</div>
+          <h2 id="mix-title">Disponibilidad y especialidades destacadas.</h2>
+          <p class="section__lead">Distribución del estado de los médicos y especialidades por tarifa.</p>
+        </div>
+      </div>
+
+      <div class="dash-split">
+        <div class="dash-panel">
+          <h3 class="dash-panel__title">Estado del cuerpo médico</h3>
+          <div class="donut-wrap">
+            <div class="donut" id="donut" role="img" aria-label="Distribución del estado de los médicos"></div>
+            <ul class="donut-legend" id="donut-legend"></ul>
+          </div>
+        </div>
+        <div class="dash-panel">
+          <h3 class="dash-panel__title">Ranking por tarifa</h3>
+          <div class="rank-cols">
+            <div>
+              <div class="kicker">Más altas</div>
+              <ol class="rank-list" id="rank-top"></ol>
+            </div>
+            <div>
+              <div class="kicker">Más accesibles</div>
+              <ol class="rank-list" id="rank-bottom"></ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="../index.html" class="brand">
+          <span class="brand__mark" aria-hidden="true">+</span>
+          <span class="brand__name">Clinica<em>Web</em></span>
+        </a>
+        <p>Atención médica integral en San Isidro, Lima. Comprometidos con tu salud y bienestar desde 2015.</p>
+      </div>
+      <div class="site-footer__col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="../medicos/index.html">Directorio médico</a></li>
+          <li><a href="../servicios/index.html">Especialidades</a></li>
+          <li><a href="../agenda/nueva-cita.html">Agendar cita</a></li>
+          <li><a href="../pacientes/registro.html">Registro paciente</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="../contacto/index.html">Contacto</a></li>
+          <li><a href="index.html">Panel de indicadores</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col site-footer__contact">
+        <h4>Contacto</h4>
+        <div class="row"><span class="lab">Dirección</span><span class="val">Av. Javier Prado 1234, San Isidro</span></div>
+        <div class="row"><span class="lab">Teléfono</span><span class="val">(01) 234-5678</span></div>
+        <div class="row"><span class="lab">Correo</span><span class="val">info@clinicaweb.pe</span></div>
+        <div class="row"><span class="lab">Horario</span><span class="val">Lun–Sáb · 07:00–20:00</span></div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 ClinicaWeb · Todos los derechos reservados</span>
+      <span>Taller de Programación Web · UTP · Mg. Jesús Antonio Pacahuala Arroyo</span>
+    </div>
+  </footer>
+
+  <script defer src="../js/ui.js"></script>
+  <script defer src="../js/data.js"></script>
+  <script defer src="../js/dashboard.js"></script>
+</body>
+</html>
