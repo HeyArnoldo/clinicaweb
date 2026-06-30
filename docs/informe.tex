@@ -1,0 +1,409 @@
+% ============================================================
+%  ClinicaWeb — Informe técnico del proyecto final
+%  Taller de Programación Web — UTP
+%  Compilar con pdfLaTeX (Overleaf: Menu -> Compiler -> pdfLaTeX)
+% ============================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[a4paper,margin=2.5cm,headheight=14pt]{geometry}
+\usepackage[table]{xcolor}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+
+% ---- Paleta corporativa (coherente con el sitio) ----
+\definecolor{navy}{HTML}{0D3B66}
+\definecolor{clinicgreen}{HTML}{2E8B6F}
+\definecolor{inkgray}{HTML}{3A4654}
+\definecolor{soft}{HTML}{F2F5F7}
+\definecolor{linecol}{HTML}{D9E1E7}
+
+% ---- Encabezado / pie ----
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.3pt}
+\fancyhead[R]{\footnotesize\color{inkgray} ClinicaWeb $\cdot$ Taller de Programación Web $\cdot$ UTP}
+\fancyfoot[C]{\footnotesize\color{inkgray}\thepage}
+
+% ---- Estilo de títulos ----
+\titleformat{\section}{\Large\bfseries\color{navy}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{clinicgreen}}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.4em}
+
+% ---- Listings (código) ----
+\lstdefinelanguage{JavaScript}{
+  keywords={const,let,var,function,return,if,else,for,while,new,this,
+            true,false,null,typeof,class,extends,export,import},
+  keywordstyle=\color{navy}\bfseries,
+  ndkeywords={map,filter,reduce,forEach,sort,slice,querySelector,
+              createElement,addEventListener},
+  ndkeywordstyle=\color{clinicgreen},
+  sensitive=true,
+  comment=[l]{//},
+  commentstyle=\color{inkgray}\itshape,
+  morestring=[b]",
+  morestring=[b]',
+  stringstyle=\color{clinicgreen}
+}
+\lstset{
+  language=JavaScript,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{soft},
+  frame=single,
+  rulecolor=\color{linecol},
+  breaklines=true,
+  showstringspaces=false,
+  columns=fullflexible,
+  xleftmargin=0.5em,
+  framexleftmargin=0.5em,
+  aboveskip=1em,
+  belowskip=1em
+}
+
+% ---- Tablas con cabecera de color ----
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\thead}[1]{\textbf{\color{white}#1}}
+\newcommand{\hrow}{\rowcolor{navy}}
+
+\setlist{itemsep=2pt,topsep=4pt}
+
+% ============================================================
+\begin{document}
+
+% ---- PORTADA ----
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{1.5cm}
+{\large\bfseries\color{navy} UNIVERSIDAD TECNOLÓGICA DEL PERÚ\par}
+\vspace{0.3cm}
+{\color{inkgray} Facultad de Ingeniería $\cdot$ Carrera de Ingeniería de Sistemas e Informática\par}
+\vspace{1.8cm}
+{\large\color{inkgray} TALLER DE PROGRAMACIÓN WEB\par}
+{\itshape\color{inkgray} Trabajo Final\par}
+\vspace{1.0cm}
+{\Huge\bfseries\color{navy} ClinicaWeb\par}
+\vspace{0.4cm}
+{\large\itshape Sitio web responsivo e interactivo para una clínica de servicios médicos\par}
+\vspace{1.6cm}
+
+{\bfseries\color{clinicgreen} INTEGRANTES\par}
+\vspace{0.4cm}
+\begin{tabular}{>{\raggedright}p{9cm} l}
+\toprule
+\textbf{Nombre completo} & \textbf{Código} \\
+\midrule
+Adriano Joao Souza Reyna & U24235100 \\
+Kevin Asencios Sebastian & U24263635 \\
+Jesus Miguel Canchanya Soto & U24210146 \\
+Renzo Steven Contreras Quezada & U23323758 \\
+Yosselyn Aracelly Nuñez Vasquez & U24224209 \\
+Italo Johan Barreto Villanueva & U19309695 \\
+\bottomrule
+\end{tabular}
+
+\vspace{1.4cm}
+{\bfseries\color{clinicgreen} DOCENTE\par}
+\vspace{0.2cm}
+{Mg. Jesús Antonio Pacahuala Arroyo\par}
+\vspace{1.6cm}
+{Lima -- Perú\par}
+{2026\par}
+\end{titlepage}
+
+% ---- ÍNDICE ----
+\tableofcontents
+\newpage
+
+% ============================================================
+\section{Introducción}
+
+El presente documento constituye el informe técnico del proyecto \textbf{ClinicaWeb}, un sitio web responsivo e interactivo desarrollado en el marco del curso Taller de Programación Web de la Universidad Tecnológica del Perú. El proyecto consiste en la implementación de un sitio web institucional para una clínica de servicios médicos ubicada en San Isidro, Lima, utilizando las tres tecnologías fundamentales del desarrollo front-end estándar: \textbf{HTML5}, \textbf{CSS3} y \textbf{JavaScript}.
+
+En el sector salud, la presencia digital se ha convertido en un factor crítico para la accesibilidad de los pacientes a la información clínica, el agendamiento de citas y el conocimiento del cuerpo médico. De acuerdo con la Organización Panamericana de la Salud (OPS, 2022), más del 72\,\% de los usuarios de internet en América Latina busca información de salud en línea antes de acudir a una consulta presencial. Este comportamiento refuerza la necesidad de contar con sitios web bien estructurados, accesibles, con tiempos de carga reducidos, con información veraz y --- sobre todo --- con interactividad que resuelva tareas concretas del usuario.
+
+ClinicaWeb se compone de siete páginas HTML organizadas en una arquitectura de carpetas semánticas, un sistema de diseño centralizado en variables CSS, tres formularios con validación combinada (HTML5 + JavaScript), cinco tablas de datos accesibles, un menú de navegación responsivo con botón hamburguesa, ventanas flotantes (modales), calculadoras en tiempo real y un panel de indicadores (\emph{dashboard}) que procesa datos con JavaScript. Toda la capa dinámica se construyó en JavaScript puro (\emph{vanilla}), sin frameworks ni dependencias externas, y el sitio se despliega de forma automática en GitHub Pages.
+
+El documento se estructura en diez secciones: introducción, planteamiento del problema, objetivos, marco teórico, implementación de la solución, resultados y pruebas, conclusiones, recomendaciones, bibliografía y anexos. Cada sección busca evidenciar el cumplimiento de los requisitos académicos establecidos en la rúbrica del proyecto y demostrar la aplicación de buenas prácticas modernas de desarrollo web front-end.
+
+% ============================================================
+\section{Planteamiento del Problema}
+
+Las clínicas medianas y pequeñas en Lima Metropolitana enfrentan tres limitaciones comunes en su presencia digital. La primera es la \textbf{fragmentación de la información}: los pacientes deben llamar por teléfono para conocer disponibilidad de médicos, especialidades, precios o convenios con seguros públicos, lo que genera carga operativa en recepción y una experiencia deficiente. La segunda es la \textbf{ausencia de canales digitales} para solicitud de citas: la mayoría de clínicas de este segmento aún opera por teléfono o WhatsApp, sin un formulario web estructurado que recoja los datos esenciales. La tercera es la \textbf{falta de centralización} de la información del cuerpo médico, lo que impide al paciente verificar la formación profesional, el número de Colegio Médico del Perú (CMP) o los horarios de cada especialista.
+
+Estas limitaciones se traducen en cuatro problemas concretos para el negocio: (a) saturación del teléfono central durante las horas pico, (b) pérdida de pacientes que abandonan la búsqueda antes de llamar, (c) errores en la toma de datos por canal telefónico, y (d) imposibilidad de aprovechar canales digitales para difundir convenios con EsSalud y SIS.
+
+El proyecto ClinicaWeb aborda estas limitaciones mediante un sitio web institucional con siete vistas funcionales: una página principal, un directorio médico con tabla filtrable, un catálogo de servicios con calculadora de costos, un formulario de solicitud de cita con cálculo de tarifa en vivo, un formulario de registro de paciente, una página de contacto y un panel de indicadores. La solución es estática en cuanto a infraestructura --- para reducir costos y facilitar el despliegue --- pero \textbf{dinámica en el navegador} gracias a JavaScript, que aporta validación, cálculo, filtrado y manipulación del contenido en tiempo real sin necesidad de un servidor de aplicaciones.
+
+% ============================================================
+\section{Objetivos}
+
+\subsection{Objetivo general}
+Desarrollar un sitio web responsivo e interactivo para una clínica de servicios médicos, denominado ClinicaWeb, aplicando los principios modernos de diseño web, maquetación con Flexbox y CSS Grid, animaciones y transiciones CSS, formularios con validación, y una capa de comportamiento en JavaScript (manipulación del DOM, eventos, funciones, arrays y procesamiento de formularios), utilizando exclusivamente HTML5, CSS3 y JavaScript como tecnologías de implementación.
+
+\subsection{Objetivos específicos}
+\begin{enumerate}
+  \item Diseñar una arquitectura de carpetas semánticas que organice el sitio en siete páginas HTML agrupadas por dominio funcional, con un archivo \texttt{index.html} raíz como punto de entrada.
+  \item Implementar un sistema de diseño centralizado en \texttt{css/tokens.css} mediante variables CSS, definiendo paleta de colores, tipografía, espaciado, radios, sombras y \emph{breakpoints}.
+  \item Construir un \emph{layout} responsivo basado en Flexbox y CSS Grid, con tres puntos de quiebre (760~px, 1024~px y 1100~px).
+  \item Incorporar animaciones (\lstinline|@keyframes|) y transiciones CSS para enriquecer la experiencia: aparición de modales, despliegue del menú y pulsos de estado.
+  \item Centralizar los datos del dominio (médicos y especialidades) en \textbf{arrays paralelos} dentro de \texttt{js/data.js} como única fuente de verdad.
+  \item Desarrollar una capa de comportamiento en JavaScript que incluya: menú responsivo con botón hamburguesa, ventanas flotantes reutilizables, validación y procesamiento de formularios, calculadoras en tiempo real, tablas renderizadas dinámicamente y un panel de indicadores.
+  \item Construir cinco tablas HTML accesibles (\lstinline|caption|, \lstinline|thead|, \lstinline|tbody|, \lstinline|scope|) y estilizarlas con CSS.
+  \item Verificar el comportamiento JavaScript con pruebas automatizadas y desplegar el sitio de forma reproducible.
+  \item Documentar el desarrollo en un informe técnico siguiendo el formato académico de la UTP.
+\end{enumerate}
+
+% ============================================================
+\section{Marco Teórico}
+
+El marco teórico se sustenta en seis pilares conceptuales: HTML5 con semántica web, CSS3 con sistemas de \emph{layout} modernos, diseño responsivo, animaciones y transiciones CSS, JavaScript y manipulación del DOM, y el procesamiento de formularios. A continuación se desarrolla cada uno.
+
+\subsection{HTML5 y semántica web}
+HTML5, estandarizado por el World Wide Web Consortium (W3C) en 2014, introduce elementos semánticos que describen el rol estructural de cada bloque de contenido: \lstinline|<header>|, \lstinline|<nav>|, \lstinline|<main>|, \lstinline|<section>|, \lstinline|<article>|, \lstinline|<aside>| y \lstinline|<footer>|. A diferencia de los \lstinline|<div>| genéricos, estos elementos comunican explícitamente la intención del contenido a navegadores, tecnologías asistivas y motores de búsqueda (MDN Web Docs, 2024). En ClinicaWeb cada una de las siete páginas implementa este patrón semántico, reforzado con atributos ARIA (\lstinline|aria-label|, \lstinline|aria-current|, \lstinline|aria-modal|) donde la semántica nativa no alcanza.
+
+\subsection{CSS3, Grid y Flexbox}
+CSS3 representa la modularización del lenguaje de hojas de estilo en cascada. Dos de sus módulos transformaron la maquetación: \textbf{Flexbox} (modelo unidimensional, ideal para alinear elementos en una fila o columna) y \textbf{CSS Grid} (modelo bidimensional, ideal para rejillas complejas). Ambos resuelven problemas que históricamente requerían trucos con \lstinline|float| o posicionamiento absoluto (Frain, 2022). El proyecto usa Flexbox en el encabezado, los botones y los grupos de campos, y CSS Grid en las rejillas de tarjetas, el pie de página y los \emph{layouts} de dos columnas.
+
+\subsection{Diseño responsivo y unidades relativas}
+El diseño responsivo fue definido por Ethan Marcotte (2010) como la combinación de rejillas fluidas, imágenes flexibles y \emph{media queries}. ClinicaWeb define tres \emph{breakpoints} (1100~px, 1024~px y 760~px) y usa unidades relativas (\lstinline|rem|, \lstinline|%|, \lstinline|vw|, \lstinline|ch|) junto con la función \lstinline|clamp()| para tipografía fluida. Esto es indispensable considerando que más del 70\,\% del tráfico web en Perú proviene de dispositivos móviles (IAB Perú, 2023).
+
+\subsection{Animaciones y transiciones CSS}
+CSS distingue dos mecanismos de movimiento. Las \textbf{transiciones} interpolan un cambio entre dos estados (por ejemplo, el color de un botón al pasar el cursor) y se declaran con \lstinline|transition|. Las \textbf{animaciones} permiten secuencias de varios fotogramas mediante la regla \lstinline|@keyframes|, ejecutándose en bucle o bajo demanda. ClinicaWeb emplea transiciones en botones, tarjetas y campos de formulario, y animaciones \lstinline|@keyframes| para la aparición de los modales (desvanecimiento + escala), el despliegue del menú hamburguesa, el pulso de los indicadores de estado y el crecimiento de las barras del \emph{dashboard}. Se respeta la preferencia \lstinline|prefers-reduced-motion| para usuarios sensibles al movimiento.
+
+\subsection{JavaScript y manipulación del DOM}
+JavaScript es el lenguaje de programación del lado del cliente que dota de comportamiento a las páginas web. El navegador expone el documento como un árbol de objetos --- el \textbf{DOM} (Document Object Model) --- que JavaScript puede consultar y modificar (MDN Web Docs, 2024). Las operaciones centrales utilizadas en el proyecto son: selección de nodos (\lstinline|querySelector|), creación y modificación de elementos (\lstinline|createElement|, \lstinline|textContent|, \lstinline|classList|), y la suscripción a \textbf{eventos} del usuario mediante \lstinline|addEventListener| (clics, cambios de campo, envíos de formulario). ClinicaWeb aplica estas operaciones para renderizar tablas, abrir ventanas flotantes, validar formularios y actualizar indicadores en tiempo real.
+
+\subsection{Arrays paralelos y funciones de arrays}
+Un \textbf{array paralelo} es una técnica de organización de datos en la que varios arreglos independientes comparten el mismo índice: el elemento en la posición \emph{i} de cada arreglo describe a la misma entidad. Por ejemplo, \lstinline|nombres[i]|, \lstinline|especialidad[i]| y \lstinline|cmp[i]| describen al mismo médico. Sobre estos datos se aplican \textbf{funciones de orden superior} propias de JavaScript: \lstinline|map| (transformar), \lstinline|filter| (seleccionar), \lstinline|reduce| (agregar), \lstinline|sort| (ordenar) y \lstinline|forEach| (recorrer). Esta combinación es la base del filtrado de tablas, las calculadoras y las métricas del \emph{dashboard}.
+
+\subsection{Validación y procesamiento de formularios}
+HTML5 introdujo atributos de validación nativos (\lstinline|required|, \lstinline|pattern|, \lstinline|minlength|, \lstinline|maxlength|, \lstinline|type|, \lstinline|min|, \lstinline|max|) que cubren las verificaciones más comunes (Castro \& Hyslop, 2021). Sobre esta base, JavaScript permite un \textbf{procesamiento} más rico: validar con mensajes personalizados usando la \emph{Constraint Validation API} (\lstinline|checkValidity()|, objeto \lstinline|validity|), prevenir el envío real (\lstinline|preventDefault()|), calcular valores derivados y mostrar una confirmación al usuario. ClinicaWeb combina ambos niveles en sus tres formularios.
+
+% ============================================================
+\section{Implementación de la Solución}
+
+\subsection{Arquitectura y estructura de carpetas}
+El proyecto sigue el patrón de sitio multi-página con carpetas semánticas. Cada sección dispone de su propia subcarpeta con un \texttt{index.html}, y la lógica JavaScript vive en una carpeta \texttt{js/} compartida. La estructura es la siguiente:
+
+\begin{center}
+\begin{tabularx}{\textwidth}{l Y}
+\hrow \thead{Ruta} & \thead{Descripción} \\
+\midrule
+\texttt{/index.html} & Página de inicio (raíz del proyecto) \\
+\texttt{/medicos/index.html} & Directorio médico con tabla filtrable \\
+\texttt{/servicios/index.html} & Catálogo de especialidades y cotizador \\
+\texttt{/agenda/nueva-cita.html} & Formulario de cita con calculadora de costo \\
+\texttt{/pacientes/registro.html} & Registro de paciente con calculadoras \\
+\texttt{/contacto/index.html} & Contacto y formulario general \\
+\texttt{/dashboard/index.html} & Panel de indicadores en tiempo real \\
+\texttt{/css/tokens.css} & Sistema de diseño (única hoja de estilos) \\
+\texttt{/js/} & Capa de comportamiento (7 archivos JavaScript) \\
+\texttt{/assets/img/} & Recursos gráficos \\
+\texttt{/.github/workflows/} & Workflow de despliegue automático a Pages \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Stack y herramientas}
+\begin{center}
+\begin{tabularx}{\textwidth}{l Y}
+\hrow \thead{Capa} & \thead{Tecnología / Justificación} \\
+\midrule
+Marcado & HTML5 con elementos semánticos. \\
+Estilos & CSS3: Grid, Flexbox, variables, \emph{media queries}, transiciones y \lstinline|@keyframes|. \\
+Comportamiento & JavaScript \emph{vanilla} (ES6+): DOM, eventos, arrays, módulos por archivo. \\
+Validación & HTML5 nativa + \emph{Constraint Validation API} de JavaScript. \\
+Versionado & Git con repositorio remoto en GitHub. \\
+Despliegue & GitHub Pages vía GitHub Actions (\texttt{static.yml}); además, imagen Docker + Nginx para entornos propios. \\
+Pruebas & jsdom (Node.js) para pruebas automatizadas del DOM. \\
+Editor & Visual Studio Code. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Sistema de diseño (tokens.css)}
+El archivo \texttt{css/tokens.css} es la única hoja de estilos del proyecto, importada por las siete páginas. Concentra todos los \emph{tokens} de diseño en el selector \lstinline|:root| como variables CSS, lo que permite cambiar la apariencia global modificando una sola declaración. Los \emph{tokens} abarcan colores (en el espacio \lstinline|oklch|), tipografía, espaciado, radios y sombras. La paleta usa verde clínico como acento, azul como color informativo y una escala neutra de grises; el contraste cumple el ratio AA del estándar WCAG 2.1.
+
+\subsection{Inventario de páginas}
+\begin{center}
+\begin{tabularx}{\textwidth}{l Y}
+\hrow \thead{Página} & \thead{Componentes principales} \\
+\midrule
+Inicio & Hero, 6 tarjetas de especialidades, indicadores, banner, CTA. \\
+Médicos & Tabla de directorio (renderizada y filtrable con JS), tabla de disponibilidad semanal, modal de detalle. \\
+Servicios & Tarjetas destacadas, catálogo (renderizado, filtrable y ordenable con JS), cotizador con \lstinline|reduce|. \\
+Agenda & Formulario de cita con validación JS, \emph{selects} dependientes y calculadora de costo; panel lateral. \\
+Pacientes & Formulario de registro con validación JS, calculadora de edad e IMC. \\
+Contacto & Tarjetas de contacto, tabla de líneas por área, formulario con contador de caracteres. \\
+Panel & \emph{Dashboard} con KPIs, gráfico de barras, \emph{donut} y rankings calculados en vivo. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Capa de datos: arrays paralelos (data.js)}
+El archivo \texttt{js/data.js} centraliza los datos del dominio como arrays paralelos y los expone en \lstinline|window.CLINICA|, evitando duplicar información a lo largo del sitio. Por ejemplo, los médicos se modelan así:
+
+\begin{lstlisting}
+const medNombres = ["Dr. Carlos Mendoza", "Dra. María Torres", /* ... */];
+const medEspNombre = ["Cardiología", "Pediatría", /* ... */];
+const medCmp = ["45231", "38742", /* ... */];
+const medEstado = ["disponible", "disponible", /* ... */];
+// medNombres[i], medEspNombre[i], medCmp[i] y medEstado[i]
+// describen al MISMO médico i (arrays paralelos).
+\end{lstlisting}
+
+\subsection{Comportamiento compartido: menú hamburguesa y modales (ui.js)}
+El archivo \texttt{js/ui.js} se carga en las siete páginas y aporta dos piezas reutilizables. La primera es el \textbf{menú hamburguesa}: el botón se inyecta por DOM y, en pantallas menores a 760~px, despliega la navegación como panel animado; se aplica mejora progresiva marcando \lstinline|html.js| para que, sin JavaScript, el menú siga siendo usable. La segunda es un \textbf{sistema de ventanas flotantes (modal)} reutilizable, con funciones \lstinline|openModal()| y \lstinline|closeModal()|, cierre con tecla Escape o clic en el fondo, y animación de entrada. Estas piezas cubren el requisito de ``menú responsivo y ventanas flotantes''.
+
+\subsection{Tablas dinámicas y filtros}
+En las páginas de Médicos y Servicios, las tablas no son estáticas: se renderizan desde los arrays paralelos con \lstinline|createElement| y se vuelven a dibujar al aplicar filtros. En Médicos se filtra por especialidad y estado; en Servicios se filtra por convenio y se ordena por precio. Esto evidencia manipulación del DOM y uso de \lstinline|filter|, \lstinline|sort| y \lstinline|forEach|.
+
+\subsection{Formularios: validación, calculadoras y selects dependientes}
+Los tres formularios combinan validación HTML5 con procesamiento JavaScript. Al enviar, se previene el comportamiento por defecto, se valida cada campo con mensajes personalizados y, si todo es correcto, se muestra una ventana flotante de confirmación. Además:
+\begin{itemize}
+  \item \textbf{Cita médica:} al elegir especialidad se filtran los médicos disponibles (\emph{selects} dependientes) y se calcula el costo estimado en vivo, con recargo del 50\,\% para consultas urgentes.
+  \item \textbf{Registro de paciente:} calcula automáticamente la edad a partir de la fecha de nacimiento e incorpora una calculadora de IMC.
+  \item \textbf{Contacto:} muestra un contador de caracteres en vivo sobre el mensaje.
+\end{itemize}
+
+Un ejemplo del cálculo del cotizador de servicios, que suma los precios seleccionados con \lstinline|reduce|:
+
+\begin{lstlisting}
+const total = seleccionados.reduce((suma, i) => suma + precios[i], 0);
+\end{lstlisting}
+
+\subsection{Dashboard de indicadores}
+La página \texttt{/dashboard/} es un panel que calcula y dibuja métricas en tiempo real a partir de los arrays: indicadores clave (número de médicos, disponibles, precio promedio e ingreso potencial), un gráfico de barras de precio por especialidad, un \emph{donut} de distribución del estado de los médicos (construido con \lstinline|conic-gradient| calculado en JS) y rankings de tarifas. Los controles de convenio y orden recalculan todo al instante. Es la pieza que demuestra de forma más vistosa el uso conjunto de arrays paralelos, funciones de arrays, eventos y manipulación del DOM.
+
+% ============================================================
+\section{Resultados y Pruebas}
+
+\subsection{Validación de código}
+Las siete páginas HTML y la hoja de estilos se validaron contra los servicios del W3C. Las únicas advertencias corresponden a propiedades modernas (\lstinline|backdrop-filter|, \lstinline|color-mix|, \lstinline|oklch|) interpretadas correctamente por navegadores actuales.
+
+\subsection{Pruebas funcionales de formularios}
+Se verificaron manualmente los escenarios: campos obligatorios vacíos, correo con formato inválido, DNI no numérico, fecha fuera de rango, mensaje demasiado corto y consentimiento sin marcar. En todos los casos la validación combinada (HTML5 + JS) impide el envío y muestra un mensaje claro; con datos válidos, aparece la ventana flotante de confirmación.
+
+\subsection{Pruebas automatizadas con jsdom}
+Se construyó una prueba de humo automatizada con \texttt{jsdom} que carga cada página, ejecuta los scripts y verifica las transformaciones del DOM. La batería comprueba: inyección del menú hamburguesa, render de tablas desde arrays, funcionamiento de los filtros, cálculo del cotizador (120 + 80 = 200), recargo de urgencia (120 $\rightarrow$ 180), cálculo de IMC (24.2), contador de caracteres, apertura de modales y métricas del \emph{dashboard}. \textbf{Resultado: 30 de 30 verificaciones exitosas.}
+
+\subsection{Pruebas de adaptación responsiva}
+\begin{center}
+\begin{tabularx}{\textwidth}{l l Y}
+\hrow \thead{Viewport} & \thead{Dispositivo} & \thead{Comportamiento} \\
+\midrule
+375$\times$667 & Móvil & Menú hamburguesa, formularios en una columna, tablas con \emph{scroll}. \\
+768$\times$1024 & Tablet & Grillas a dos columnas, tablas en su ancho natural. \\
+1280$\times$800 & Desktop & \emph{Layout} completo, grillas a 3--4 columnas, panel lateral \emph{sticky}. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Pruebas de navegación interna}
+Se verificó que los enlaces internos (menú, breadcrumbs, footer, CTA) sean coherentes y no produzcan errores 404. Las rutas relativas están correctamente ajustadas según la profundidad de cada archivo.
+
+\subsection{Despliegue}
+El sitio se despliega automáticamente en \textbf{GitHub Pages} mediante un workflow de GitHub Actions que se ejecuta en cada \emph{push} a la rama principal. La URL pública es \url{https://heyarnoldo.github.io/clinicaweb/}. Como el sitio es 100\,\% estático y usa rutas relativas, no requiere configuración adicional. De forma complementaria, el repositorio conserva un \texttt{Dockerfile} con Nginx para despliegues en infraestructura propia.
+
+% ============================================================
+\section{Conclusiones}
+
+\textbf{Primera.} La combinación de HTML5, CSS3 y JavaScript es suficiente para construir un sitio web institucional completo, accesible, responsivo e interactivo, sin recurrir a frameworks ni a lenguajes del lado del servidor. Esta elección reduce la curva de aprendizaje y elimina dependencias externas.
+
+\textbf{Segunda.} Centralizar los datos en arrays paralelos (una única fuente de verdad) es la decisión de diseño más importante del proyecto: de ella se alimentan las tablas, los filtros, las calculadoras y el \emph{dashboard}, evitando inconsistencias.
+
+\textbf{Tercera.} La manipulación del DOM y las funciones de arrays (\lstinline|map|, \lstinline|filter|, \lstinline|reduce|, \lstinline|sort|) permiten transformar datos en interfaz de forma declarativa y mantenible.
+
+\textbf{Cuarta.} La validación de formularios en dos niveles (atributos HTML5 + \emph{Constraint Validation API}) ofrece a la vez robustez y una experiencia de usuario clara, con mensajes personalizados y confirmaciones visuales.
+
+\textbf{Quinta.} Las animaciones y transiciones CSS, aplicadas con mesura y respetando \lstinline|prefers-reduced-motion|, elevan la percepción de calidad sin perjudicar la accesibilidad.
+
+\textbf{Sexta.} El proyecto cumple con los ocho aspectos del desarrollo exigidos por la rúbrica: contenido coherente, diseño responsivo con Flexbox y Grid, tablas y formularios validados y estilizados, animaciones y transiciones CSS, JavaScript con eventos y procesamiento de formularios, arrays paralelos y funciones de arrays, menú responsivo y ventanas flotantes, y manipulación del DOM.
+
+% ============================================================
+\section{Recomendaciones}
+
+\begin{itemize}
+  \item \textbf{Versionado con Git desde el día uno}, con commits descriptivos y revisión cruzada mediante \emph{pull requests}.
+  \item \textbf{Validación continua con W3C} al cierre de cada hito de desarrollo.
+  \item \textbf{Pruebas en múltiples navegadores}, prestando atención a propiedades modernas (\lstinline|backdrop-filter|, \lstinline|color-mix|, \lstinline|oklch|).
+  \item \textbf{Ampliar la cobertura de pruebas automatizadas} más allá de la prueba de humo, hacia casos límite de cada formulario.
+  \item \textbf{Optimización de imágenes} a formato WebP y declaración de \lstinline|width|/\lstinline|height| para evitar saltos de \emph{layout}.
+  \item \textbf{Evolución hacia un back-end} ligero (por ejemplo NestJS con PostgreSQL) que persista las solicitudes y envíe correos de confirmación; la arquitectura de carpetas actual facilita esa transición.
+  \item \textbf{Accesibilidad como criterio continuo}, auditando con Lighthouse o axe DevTools.
+\end{itemize}
+
+% ============================================================
+\section{Bibliografía}
+
+\begin{list}{}{\setlength{\leftmargin}{1.5em}\setlength{\itemindent}{-1.5em}\setlength{\itemsep}{6pt}}
+\item American Psychological Association. (2020). \textit{Publication manual of the American Psychological Association} (7.ª ed.). APA.
+\item Castro, E., \& Hyslop, B. (2021). \textit{HTML5 and CSS3: Visual QuickStart Guide} (9.ª ed.). Peachpit Press.
+\item Flanagan, D. (2020). \textit{JavaScript: The Definitive Guide} (7.ª ed.). O'Reilly Media.
+\item Frain, B. (2022). \textit{Responsive web design with HTML5 and CSS} (4.ª ed.). Packt Publishing.
+\item Haverbeke, M. (2018). \textit{Eloquent JavaScript} (3.ª ed.). No Starch Press. \url{https://eloquentjavascript.net/}
+\item IAB Perú. (2023). \textit{Estudio de usos y actitudes hacia internet en Perú 2023.} Interactive Advertising Bureau Perú. \url{https://iabperu.com/estudios}
+\item Marcotte, E. (2010, 25 de mayo). Responsive web design. \textit{A List Apart.} \url{https://alistapart.com/article/responsive-web-design/}
+\item MDN Web Docs. (2024). \textit{JavaScript.} Mozilla Developer Network. \url{https://developer.mozilla.org/es/docs/Web/JavaScript}
+\item MDN Web Docs. (2024). \textit{Document Object Model (DOM).} Mozilla Developer Network. \url{https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model}
+\item Organización Panamericana de la Salud. (2022). \textit{Transformación digital de la salud en las Américas: Informe 2022.} OPS/OMS. \url{https://www.paho.org/es/transformacion-digital}
+\item W3C Web Accessibility Initiative. (2018). \textit{Web Content Accessibility Guidelines (WCAG) 2.1.} World Wide Web Consortium. \url{https://www.w3.org/TR/WCAG21/}
+\end{list}
+
+% ============================================================
+\section{Anexos}
+
+\subsection*{Anexo A $\cdot$ Repositorio y sitio en vivo}
+El código fuente completo está disponible en GitHub: \url{https://github.com/HeyArnoldo/clinicaweb}. El sitio desplegado puede visitarse en \url{https://heyarnoldo.github.io/clinicaweb/}. El repositorio incluye HTML, CSS, los siete archivos JavaScript, el workflow de despliegue y la configuración Docker/Nginx.
+
+\subsection*{Anexo B $\cdot$ Capturas de pantalla representativas}
+Se recomienda adjuntar capturas de las siete páginas en los tres \emph{viewports} principales (móvil 375~px, tablet 768~px, desktop 1280~px), incluyendo: la página de inicio con el menú activo, el formulario de cita mostrando la calculadora de costo, el modal de confirmación, el menú hamburguesa abierto en móvil y el \emph{dashboard} con sus gráficos.
+
+\subsection*{Anexo C $\cdot$ Distribución de responsabilidades}
+\begin{center}
+\begin{tabularx}{\textwidth}{l Y}
+\hrow \thead{Integrante} & \thead{Responsabilidad principal} \\
+\midrule
+Adriano Joao Souza Reyna & Página de Inicio y maquetación del hero. \\
+Kevin Asencios Sebastian & Página de Médicos y tabla filtrable. \\
+Yosselyn Aracelly Nuñez Vasquez & Página de Servicios y cotizador. \\
+Renzo Steven Contreras Quezada & Página de Agenda y calculadora de cita. \\
+Jesus Miguel Canchanya Soto & Página de Pacientes y calculadoras de registro. \\
+Italo Johan Barreto Villanueva & Página de Contacto y validaciones. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+El sistema de diseño (\texttt{tokens.css}), la capa JavaScript compartida (\texttt{data.js}, \texttt{ui.js}), el \emph{dashboard}, las pruebas automatizadas, el despliegue y la redacción del informe se realizaron de manera colaborativa.
+
+\subsection*{Anexo D $\cdot$ Lista de verificación de la rúbrica}
+\begin{center}
+\begin{tabularx}{\textwidth}{Y l}
+\hrow \thead{Aspecto de la rúbrica} & \thead{Estado} \\
+\midrule
+Contenido coherente y de alta calidad & Cumplido \\
+Diseño responsivo (Flexbox y Grid) & Cumplido \\
+Tablas y formularios validados y estilizados & Cumplido \\
+Animaciones y transiciones CSS & Cumplido \\
+JavaScript: eventos, funciones, procesamiento de formularios & Cumplido \\
+Arrays paralelos y funciones de arrays & Cumplido \\
+Menú responsivo y ventanas flotantes & Cumplido \\
+Manipulación del DOM & Cumplido \\
+Informe técnico en formato académico UTP & Cumplido \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\end{document}

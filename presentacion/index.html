@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClinicaWeb — Presentación del proyecto</title>
+  <style>
+    :root{
+      --navy:#0D3B66; --green:#2E8B6F; --ink:#26303a; --muted:#5b6b78;
+      --bg:#f2f5f7; --surface:#ffffff; --line:#d9e1e7; --soft:#eef6f2;
+      --mono:'JetBrains Mono','SFMono-Regular',Menlo,Consolas,monospace;
+      --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,system-ui,sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:var(--sans);color:var(--ink);background:#0a1722;overflow:hidden}
+
+    .deck{position:relative;height:100vh;width:100vw}
+    .slide{
+      position:absolute;inset:0;display:none;
+      padding:6vh 8vw;flex-direction:column;justify-content:center;
+      background:radial-gradient(1100px 600px at 12% -10%, #eaf3ef 0%, transparent 60%),
+                 radial-gradient(800px 500px at 95% 110%, #e7eef6 0%, transparent 60%), var(--bg);
+      animation:slidein .45s cubic-bezier(.2,.8,.2,1);
+    }
+    .slide.active{display:flex}
+    @keyframes slidein{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+    .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:14px}
+    h1{font-size:clamp(34px,6vw,68px);line-height:1.03;letter-spacing:-.02em;color:var(--navy);max-width:18ch}
+    h2{font-size:clamp(26px,3.6vw,42px);line-height:1.08;letter-spacing:-.015em;color:var(--navy);margin-bottom:18px;max-width:24ch}
+    .lead{font-size:clamp(16px,1.8vw,21px);color:var(--muted);max-width:60ch;margin-top:14px;line-height:1.5}
+    p{font-size:clamp(15px,1.5vw,18px);color:var(--ink);line-height:1.55}
+    em{color:var(--green);font-style:normal}
+
+    ul{list-style:none;margin-top:18px;display:grid;gap:12px;max-width:64ch}
+    li{position:relative;padding-left:30px;font-size:clamp(15px,1.6vw,19px);line-height:1.5;color:var(--ink)}
+    li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;border-radius:50%;background:var(--soft);border:2px solid var(--green)}
+    li strong{color:var(--navy)}
+
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px;max-width:78ch}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:0 2px 10px rgba(13,59,102,.05)}
+    .card h3{color:var(--navy);font-size:18px;margin-bottom:6px}
+    .card p{font-size:15px;color:var(--muted)}
+    .card .tag{font-family:var(--mono);font-size:12px;color:var(--green)}
+
+    pre{margin-top:20px;background:#0c2030;color:#e7eef6;border-radius:12px;padding:20px 22px;font-family:var(--mono);font-size:clamp(12px,1.3vw,15px);line-height:1.6;overflow:auto;max-width:80ch;border:1px solid #16334a}
+    pre .c{color:#7fd1b9}.pre .k{color:#9ecbff}
+    .kw{color:#9ecbff}.cm{color:#7e95a6;font-style:italic}.st{color:#7fd1b9}
+
+    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .pill{font-family:var(--mono);font-size:13px;padding:7px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+    .pill--green{background:var(--green);color:#fff;border-color:var(--green)}
+    .pill--navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+    .team{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 28px;max-width:70ch}
+    .team div{font-size:15px;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--line)}
+    .team span{font-family:var(--mono);color:var(--muted);font-size:13px;margin-left:8px}
+
+    .rubric{margin-top:20px;display:grid;gap:10px;max-width:74ch}
+    .rubric .row{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 16px}
+    .rubric .row b{color:var(--navy);font-size:15px;flex:1}
+    .check{font-family:var(--mono);font-size:12px;color:#fff;background:var(--green);padding:3px 9px;border-radius:999px}
+    .num{font-family:var(--mono);color:var(--green);font-weight:600;width:22px}
+
+    .big-stat{font-family:var(--mono);font-size:clamp(60px,12vw,140px);color:var(--green);line-height:1;letter-spacing:-.03em}
+    .url{font-family:var(--mono);font-size:clamp(14px,1.6vw,19px);color:var(--navy);margin-top:18px;word-break:break-all}
+
+    /* chrome */
+    .progress{position:fixed;top:0;left:0;height:4px;background:var(--green);z-index:50;transition:width .35s ease}
+    .hud{position:fixed;bottom:18px;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:0 24px;font-family:var(--mono);font-size:12px;color:var(--muted);z-index:50;pointer-events:none}
+    .hud .brand{color:var(--navy);font-weight:600}
+    .nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:50}
+    .nav button{font-family:var(--mono);font-size:13px;width:36px;height:36px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--navy);cursor:pointer;transition:background .15s,border-color .15s}
+    .nav button:hover{background:var(--soft);border-color:var(--green)}
+    .hint{position:fixed;top:14px;right:18px;font-family:var(--mono);font-size:11px;color:var(--muted);z-index:50}
+    @media (max-width:760px){ .grid,.team{grid-template-columns:1fr} .slide{padding:8vh 7vw} }
+    @media (prefers-reduced-motion:reduce){ .slide{animation:none} .progress{transition:none} }
+  </style>
+</head>
+<body>
+
+  <div class="progress" id="progress"></div>
+  <div class="hint">← → para navegar</div>
+
+  <main class="deck" id="deck">
+
+    <!-- 1 -->
+    <section class="slide">
+      <div class="kicker">Taller de Programación Web · UTP · 2026</div>
+      <h1>Clinica<em>Web</em></h1>
+      <p class="lead">Sitio web responsivo e interactivo para una clínica de servicios médicos. Construido con <em>HTML5 + CSS3 + JavaScript</em>, sin frameworks.</p>
+      <div class="team">
+        <div>Adriano Souza Reyna <span>U24235100</span></div>
+        <div>Kevin Asencios Sebastian <span>U24263635</span></div>
+        <div>Jesus Canchanya Soto <span>U24210146</span></div>
+        <div>Renzo Contreras Quezada <span>U23323758</span></div>
+        <div>Yosselyn Nuñez Vasquez <span>U24224209</span></div>
+        <div>Italo Barreto Villanueva <span>U19309695</span></div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide">
+      <div class="kicker">01 · El problema</div>
+      <h2>Las clínicas pequeñas no resuelven nada en línea.</h2>
+      <ul>
+        <li><strong>Información fragmentada:</strong> el paciente llama para saber médicos, precios y convenios.</li>
+        <li><strong>Sin canal de citas:</strong> todo por teléfono o WhatsApp, sin datos estructurados.</li>
+        <li><strong>Cuerpo médico no centralizado:</strong> no se puede verificar CMP ni horarios.</li>
+      </ul>
+      <p class="lead">ClinicaWeb digitaliza estas tareas en un sitio estático en infraestructura, pero <em>dinámico en el navegador</em>.</p>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide">
+      <div class="kicker">02 · Stack</div>
+      <h2>Tres tecnologías, cero dependencias.</h2>
+      <div class="pills">
+        <span class="pill pill--navy">HTML5 semántico</span>
+        <span class="pill pill--navy">CSS3 · Grid + Flexbox</span>
+        <span class="pill pill--green">JavaScript vanilla</span>
+        <span class="pill">Variables CSS (tokens)</span>
+        <span class="pill">@keyframes + transiciones</span>
+        <span class="pill">GitHub Pages + Actions</span>
+      </div>
+      <p class="lead">Sin React, sin build, sin librerías. Solo el estándar de la plataforma web — exactamente lo que evalúa el curso.</p>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide">
+      <div class="kicker">03 · Arquitectura</div>
+      <h2>7 páginas + una capa JavaScript compartida.</h2>
+      <div class="grid">
+        <div class="card"><span class="tag">/index · /medicos · /servicios</span><h3>Páginas de contenido</h3><p>Inicio, directorio médico filtrable y catálogo con cotizador.</p></div>
+        <div class="card"><span class="tag">/agenda · /pacientes · /contacto</span><h3>Formularios</h3><p>Cita, registro y contacto con validación y calculadoras.</p></div>
+        <div class="card"><span class="tag">/dashboard</span><h3>Panel de indicadores</h3><p>Métricas calculadas en vivo desde los datos.</p></div>
+        <div class="card"><span class="tag">/js (7 archivos)</span><h3>Comportamiento</h3><p>data, ui, medicos, servicios, cita, registro, contacto, dashboard.</p></div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide">
+      <div class="kicker">04 · Arrays paralelos · data.js</div>
+      <h2>Una sola fuente de verdad.</h2>
+      <p class="lead">Varios arreglos comparten el mismo índice: la posición <em>i</em> de cada uno describe al mismo médico. De aquí se alimentan tablas, filtros, calculadoras y dashboard.</p>
+      <pre><span class="kw">const</span> medNombres   = [<span class="st">"Dr. Carlos Mendoza"</span>, <span class="st">"Dra. María Torres"</span>, ...];
+<span class="kw">const</span> medEspNombre = [<span class="st">"Cardiología"</span>,        <span class="st">"Pediatría"</span>,         ...];
+<span class="kw">const</span> medCmp       = [<span class="st">"45231"</span>,             <span class="st">"38742"</span>,            ...];
+<span class="cm">// medNombres[i], medEspNombre[i], medCmp[i] → el MISMO médico i</span></pre>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide">
+      <div class="kicker">05 · Menú responsivo · ui.js</div>
+      <h2>Botón hamburguesa con mejora progresiva.</h2>
+      <ul>
+        <li>El botón se <strong>inyecta por DOM</strong> y despliega el menú en pantallas &lt; 760px.</li>
+        <li>Se marca <strong>html.js</strong>: sin JavaScript, el menú sigue siendo usable (no se rompe).</li>
+        <li>Animación de despliegue con <strong>@keyframes</strong> y el ícono se transforma en X.</li>
+      </ul>
+      <p class="lead">Cubre el requisito de la rúbrica: <em>menú responsivo</em>.</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide">
+      <div class="kicker">06 · Ventanas flotantes · ui.js</div>
+      <h2>Un sistema de modales reutilizable.</h2>
+      <ul>
+        <li>Funciones <strong>openModal()</strong> / <strong>closeModal()</strong> usadas en todo el sitio.</li>
+        <li>Cierre con <strong>tecla Escape</strong>, clic en el fondo o botón ✕.</li>
+        <li>Aparición animada (desvanecimiento + escala) con <strong>@keyframes</strong>.</li>
+        <li>Se usan para: detalle de médico y confirmaciones de formularios.</li>
+      </ul>
+      <p class="lead">Cubre el requisito: <em>ventanas flotantes</em>.</p>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide">
+      <div class="kicker">07 · Tablas dinámicas · DOM</div>
+      <h2>Las tablas se dibujan desde los arrays.</h2>
+      <ul>
+        <li><strong>Médicos:</strong> render con <strong>createElement</strong> + filtro por especialidad y estado.</li>
+        <li><strong>Servicios:</strong> catálogo filtrable por convenio y ordenable por precio.</li>
+        <li>Funciones de arrays en acción: <strong>filter</strong>, <strong>sort</strong>, <strong>forEach</strong>, <strong>map</strong>.</li>
+      </ul>
+      <p class="lead">Cubre los requisitos: <em>manipulación del DOM</em> y <em>funciones de arrays</em>.</p>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide">
+      <div class="kicker">08 · Formularios · cita.js, registro.js, contacto.js</div>
+      <h2>Validación, cálculo y confirmación.</h2>
+      <div class="grid">
+        <div class="card"><h3>Cita médica</h3><p>Validación JS, médicos filtrados por especialidad y <strong>calculadora de costo</strong> en vivo (+50% urgencia).</p></div>
+        <div class="card"><h3>Registro</h3><p>Cálculo automático de <strong>edad</strong> e <strong>IMC</strong> desde los campos.</p></div>
+        <div class="card"><h3>Contacto</h3><p>Contador de caracteres en vivo y validación.</p></div>
+        <div class="card"><h3>Al enviar</h3><p><strong>preventDefault()</strong>, mensajes personalizados y modal de confirmación.</p></div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide">
+      <div class="kicker">09 · Dashboard · dashboard.js</div>
+      <h2>Indicadores calculados en tiempo real.</h2>
+      <ul>
+        <li><strong>KPIs</strong> con <strong>reduce</strong>: médicos, disponibles, precio promedio, ingreso potencial.</li>
+        <li><strong>Gráfico de barras</strong> animado de precio por especialidad.</li>
+        <li><strong>Donut</strong> de estado médico con <strong>conic-gradient</strong> calculado en JS.</li>
+        <li>Filtros que <strong>recalculan todo al instante</strong>.</li>
+      </ul>
+      <p class="lead">La pieza que reúne arrays, funciones de arrays, eventos y DOM en una sola vista.</p>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide">
+      <div class="kicker">10 · Animaciones</div>
+      <h2>Movimiento con propósito.</h2>
+      <ul>
+        <li><strong>Transiciones</strong> en botones, tarjetas y campos.</li>
+        <li><strong>@keyframes</strong> para modales, menú, pulso de estado y barras del dashboard.</li>
+        <li>Respeta <strong>prefers-reduced-motion</strong> para accesibilidad.</li>
+      </ul>
+      <p class="lead">Cubre el requisito: <em>animaciones y transiciones CSS</em>.</p>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide">
+      <div class="kicker">11 · Calidad</div>
+      <h2>No lo decimos — lo probamos.</h2>
+      <div class="big-stat">30/30</div>
+      <p class="lead">Pruebas automatizadas con <em>jsdom</em>: cargan cada página, ejecutan los scripts y verifican el DOM — render de tablas, filtros, cotizador (120+80=200), recargo (120→180), IMC (24.2), modales y métricas del dashboard. Todas pasan.</p>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide">
+      <div class="kicker">12 · Despliegue</div>
+      <h2>En línea, automático, en cada push.</h2>
+      <ul>
+        <li>Desplegado en <strong>GitHub Pages</strong> vía <strong>GitHub Actions</strong>.</li>
+        <li>100% estático con rutas relativas — sirve sin configuración extra.</li>
+        <li>Conserva <strong>Docker + Nginx</strong> para infraestructura propia.</li>
+      </ul>
+      <div class="url">https://heyarnoldo.github.io/clinicaweb/</div>
+    </section>
+
+    <!-- 14 -->
+    <section class="slide">
+      <div class="kicker">13 · Rúbrica</div>
+      <h2>Los 8 aspectos del desarrollo.</h2>
+      <div class="rubric">
+        <div class="row"><span class="num">1</span><b>Contenido coherente y de alta calidad</b><span class="check">✓</span></div>
+        <div class="row"><span class="num">2</span><b>Diseño responsivo (Flexbox + Grid)</b><span class="check">✓</span></div>
+        <div class="row"><span class="num">3</span><b>Tablas y formularios validados y estilizados</b><span class="check">✓</span></div>
+        <div class="row"><span class="num">4</span><b>Animaciones y transiciones CSS</b><span class="check">✓</span></div>
+        <div class="row"><span class="num">5</span><b>JavaScript: eventos, funciones, formularios</b><span class="check">✓</span></div>
+        <div class="row"><span class="num">6</span><b>Arrays paralelos y funciones de arrays</b><span class="check">✓</span></div>
+        <div class="row"><span class="num">7</span><b>Menú responsivo y ventanas flotantes</b><span class="check">✓</span></div>
+        <div class="row"><span class="num">8</span><b>Manipulación del DOM</b><span class="check">✓</span></div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide">
+      <div class="kicker">Gracias</div>
+      <h1>¿Preguntas?</h1>
+      <p class="lead">ClinicaWeb — Taller de Programación Web · UTP · 2026.<br>Código y sitio en vivo:</p>
+      <div class="url">github.com/HeyArnoldo/clinicaweb &nbsp;·&nbsp; heyarnoldo.github.io/clinicaweb</div>
+    </section>
+
+  </main>
+
+  <div class="nav">
+    <button id="prev" aria-label="Anterior">←</button>
+    <button id="next" aria-label="Siguiente">→</button>
+  </div>
+  <div class="hud">
+    <span class="brand">ClinicaWeb</span>
+    <span id="counter">1 / 15</span>
+  </div>
+
+  <script>
+    (function(){
+      "use strict";
+      var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+      var i = 0;
+      var counter = document.getElementById("counter");
+      var progress = document.getElementById("progress");
+
+      function show(n){
+        i = Math.max(0, Math.min(slides.length - 1, n));
+        slides.forEach(function(s, k){ s.classList.toggle("active", k === i); });
+        counter.textContent = (i + 1) + " / " + slides.length;
+        progress.style.width = ((i + 1) / slides.length * 100) + "%";
+        location.hash = "s" + (i + 1);
+      }
+      function next(){ show(i + 1); }
+      function prev(){ show(i - 1); }
+
+      document.getElementById("next").addEventListener("click", next);
+      document.getElementById("prev").addEventListener("click", prev);
+      document.addEventListener("keydown", function(e){
+        if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") { e.preventDefault(); next(); }
+        else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); prev(); }
+        else if (e.key === "Home") show(0);
+        else if (e.key === "End") show(slides.length - 1);
+      });
+      // Advance on tap (right half) / back (left half) for touch.
+      document.getElementById("deck").addEventListener("click", function(e){
+        if (e.target.closest(".nav")) return;
+        (e.clientX > window.innerWidth / 2) ? next() : prev();
+      });
+
+      var start = parseInt((location.hash.match(/^#s(\d+)$/) || [])[1], 10);
+      show(isNaN(start) ? 0 : start - 1);
+    })();
+  </script>
+</body>
+</html>
