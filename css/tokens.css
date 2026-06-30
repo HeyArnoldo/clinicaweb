@@ -1617,13 +1617,14 @@ body.modal-open { overflow: hidden; }
 /* ============================================================
    RESPONSIVE — JS-enhanced mobile nav (only when JS is active)
    ============================================================ */
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
   html.js .site-header__inner {
     flex-wrap: nowrap;
     height: 56px;
     position: relative;
   }
   html.js .nav-toggle { display: flex; order: 3; }
+  html.js .site-header__right { display: none; }
   html.js .site-nav {
     position: absolute;
     top: 100%;
