@@ -1272,4 +1272,383 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media print {
   .site-header, .site-footer, .cta-strip, .breadcrumb, .form-actions { display: none; }
   body { background: white; color: black; }
+  .nav-toggle, .modal-root, .filter-bar { display: none !important; }
+}
+
+/* ============================================================
+   ANIMATIONS — @keyframes (rubric item 4: animaciones + transiciones)
+   ============================================================ */
+@keyframes cw-pulse {
+  0%   { box-shadow: 0 0 0 0   color-mix(in oklch, var(--accent) 45%, transparent); }
+  70%  { box-shadow: 0 0 0 6px color-mix(in oklch, var(--accent) 0%,  transparent); }
+  100% { box-shadow: 0 0 0 0   color-mix(in oklch, var(--accent) 0%,  transparent); }
+}
+@keyframes cw-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes cw-modal-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+@keyframes cw-nav-slide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Living pulse on the status dots (was a static ring before). */
+.site-header__status .dot,
+.hero__status .dot,
+.hero__media-tag .dot {
+  animation: cw-pulse 2.4s ease-out infinite;
+}
+
+/* ============================================================
+   HAMBURGER MENU (rubric item 7: menú responsivo)
+   Injected by js/ui.js — hidden on desktop, shown on mobile.
+   ============================================================ */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 38px; height: 38px;
+  padding: 0 8px;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-2);
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+.nav-toggle:hover { border-color: var(--fg-soft); }
+.nav-toggle__bar {
+  display: block;
+  height: 2px; width: 20px;
+  background: var(--fg);
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .2s ease;
+}
+.site-header__inner.is-nav-open .nav-toggle__bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.site-header__inner.is-nav-open .nav-toggle__bar:nth-child(2) { opacity: 0; }
+.site-header__inner.is-nav-open .nav-toggle__bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ============================================================
+   MODAL — floating window (rubric item 7: ventanas flotantes)
+   ============================================================ */
+body.modal-open { overflow: hidden; }
+.modal-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-5);
+}
+.modal-root[hidden] { display: none; }
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: oklch(20% 0.02 235 / 0.45);
+  backdrop-filter: blur(2px);
+  animation: cw-fade-in .2s ease both;
+}
+.modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  max-height: 86vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-4);
+  box-shadow: var(--shadow-3);
+  padding: var(--s-6);
+  opacity: 0;
+  transform: translateY(16px) scale(0.97);
+}
+.modal-root.is-open .modal-dialog {
+  animation: cw-modal-in .26s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.modal-close {
+  position: absolute;
+  top: var(--s-3); right: var(--s-3);
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  font-size: 20px;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease;
+}
+.modal-close:hover { background: var(--surface-3); color: var(--fg); }
+.modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin-bottom: var(--s-4);
+  padding-right: var(--s-6);
+}
+.modal-lead { font-size: 13.5px; color: var(--muted); margin-bottom: var(--s-4); line-height: 1.55; }
+.modal-detail {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px var(--s-4);
+  font-size: 13px;
+  margin-bottom: var(--s-5);
+}
+.modal-detail dt {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  align-self: center;
+}
+.modal-detail dd { color: var(--fg); }
+.modal-foot {
+  display: flex;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+  padding-top: var(--s-4);
+  border-top: var(--hairline);
+}
+
+/* ============================================================
+   FILTER BAR (rubric item 8: manipulación del DOM)
+   ============================================================ */
+.filter-bar {
+  max-width: var(--container-wide);
+  margin: 0 auto var(--s-4);
+  padding: 0 var(--s-5);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+.filter-bar__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.filter-bar__select {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-2);
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.filter-bar__select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 18%, transparent);
+}
+.filter-bar__count {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.filter-bar__empty { text-align: center; color: var(--muted); font-style: italic; }
+
+/* Make the table action a button look like the original link */
+.action-link--btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-mono);
+}
+
+/* ============================================================
+   COTIZADOR + COST BOX + BMI (rubric item 5: calculadoras)
+   ============================================================ */
+.cotizador__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+.cotizador__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px var(--s-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+.cotizador__item:hover { border-color: var(--fg-soft); }
+.cotizador__item:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.cotizador__item input { accent-color: var(--accent); }
+.cotizador__name { font-size: 13px; color: var(--fg); }
+.cotizador__price {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.cotizador__result {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+  padding-top: var(--s-4);
+  border-top: var(--hairline);
+}
+.cotizador__result-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.cotizador__qty, .cotizador__total {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+.cotizador__total { color: var(--accent-ink); }
+
+.cost-box {
+  margin-top: var(--s-4);
+  padding: var(--s-4);
+  background: var(--surface-2);
+  border: var(--hairline);
+  border-radius: var(--r-3);
+}
+.cost-box__head {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: var(--s-3);
+}
+.cost-box__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-4);
+  font-size: 13px;
+  padding: 5px 0;
+  color: var(--fg-soft);
+}
+.cost-box__row span:last-child {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
+}
+.cost-box__row--surcharge span:last-child { color: var(--warn-ink); }
+.cost-box__row--total {
+  margin-top: 4px;
+  padding-top: var(--s-3);
+  border-top: var(--hairline);
+  font-weight: 600;
+}
+.cost-box__row--total span { color: var(--fg); }
+.cost-box__row--total span:last-child { color: var(--accent-ink); font-size: 15px; }
+.cost-box__note { margin-top: var(--s-3); font-size: 11px; color: var(--muted); }
+
+.bmi {
+  margin-top: var(--s-4);
+  padding: var(--s-4);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-3);
+}
+.bmi__head {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: var(--s-3);
+}
+.bmi__head span { color: var(--muted); font-weight: 400; font-size: 12px; }
+.bmi__result {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+.bmi__value {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+.bmi__class:empty { display: none; }
+
+/* ============================================================
+   FORM VALIDATION FEEDBACK (rubric item 5: procesamiento JS)
+   ============================================================ */
+.field--error input,
+.field--error select,
+.field--error textarea {
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--danger) 14%, transparent);
+}
+.field__error {
+  margin-top: 4px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--danger-ink);
+  animation: cw-fade-in .18s ease both;
+}
+.consent--error {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+.char-counter { font-variant-numeric: tabular-nums; }
+.char-counter--low { color: var(--danger-ink); }
+
+/* ============================================================
+   RESPONSIVE — JS-enhanced mobile nav (only when JS is active)
+   ============================================================ */
+@media (max-width: 760px) {
+  html.js .site-header__inner {
+    flex-wrap: nowrap;
+    height: 56px;
+    position: relative;
+  }
+  html.js .nav-toggle { display: flex; order: 3; }
+  html.js .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--surface);
+    border-bottom: var(--hairline);
+    box-shadow: var(--shadow-2);
+    display: none;
+    padding: var(--s-3) var(--s-4);
+  }
+  html.js .site-header__inner.is-nav-open .site-nav {
+    display: block;
+    animation: cw-nav-slide .22s ease both;
+  }
+  html.js .site-nav ul { flex-direction: column; gap: 2px; align-items: stretch; }
+  html.js .site-nav a { padding: 10px 12px; font-size: 14px; }
+}
+
+/* ============================================================
+   REDUCED MOTION — respect user preference
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
