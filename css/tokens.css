@@ -1102,7 +1102,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .site-footer__brand .brand { margin-bottom: var(--s-3); }
 .site-footer__brand p { color: var(--muted); max-width: 36ch; }
-.site-footer__col h4 {
+.site-footer__col h3 {
   font-family: var(--font-mono);
   font-size: 11px;
   text-transform: uppercase;
