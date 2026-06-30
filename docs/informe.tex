@@ -298,7 +298,24 @@ La página \texttt{/dashboard/} es un panel que calcula y dibuja métricas en ti
 \section{Resultados y Pruebas}
 
 \subsection{Validación de código}
-Las siete páginas HTML y la hoja de estilos se validaron contra los servicios del W3C. Las únicas advertencias corresponden a propiedades modernas (\lstinline|backdrop-filter|, \lstinline|color-mix|, \lstinline|oklch|) interpretadas correctamente por navegadores actuales.
+Las siete páginas HTML se validaron con el \emph{W3C Nu HTML Checker} (\url{https://validator.w3.org/nu/}) sobre el sitio desplegado en producción. Tras corregir dos observaciones iniciales --- un atributo \lstinline|aria-label| sobre un elemento sin rol semántico y un salto en la jerarquía de encabezados (\lstinline|h2| a \lstinline|h4|) --- todas las páginas validan \textbf{sin errores ni advertencias}, como resume la tabla siguiente:
+
+\begin{center}
+\begin{tabularx}{\textwidth}{Y l}
+\hrow \thead{Página} & \thead{Resultado W3C} \\
+\midrule
+\texttt{/index.html} & 0 errores $\cdot$ 0 advertencias \\
+\texttt{/medicos/} & 0 errores $\cdot$ 0 advertencias \\
+\texttt{/servicios/} & 0 errores $\cdot$ 0 advertencias \\
+\texttt{/agenda/nueva-cita.html} & 0 errores $\cdot$ 0 advertencias \\
+\texttt{/pacientes/registro.html} & 0 errores $\cdot$ 0 advertencias \\
+\texttt{/contacto/} & 0 errores $\cdot$ 0 advertencias \\
+\texttt{/dashboard/} & 0 errores $\cdot$ 0 advertencias \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+La hoja de estilos se validó contra el W3C CSS Validation Service considerando el perfil CSS3. Las únicas observaciones corresponden a propiedades modernas (\lstinline|backdrop-filter|, \lstinline|color-mix|, \lstinline|oklch|) interpretadas correctamente por los navegadores actuales.
 
 \subsection{Pruebas funcionales de formularios}
 Se verificaron manualmente los escenarios: campos obligatorios vacíos, correo con formato inválido, DNI no numérico, fecha fuera de rango, mensaje demasiado corto y consentimiento sin marcar. En todos los casos la validación combinada (HTML5 + JS) impide el envío y muestra un mensaje claro; con datos válidos, aparece la ventana flotante de confirmación.
