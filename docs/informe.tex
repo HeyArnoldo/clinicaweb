@@ -20,7 +20,13 @@
 \usepackage{fancyhdr}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[hidelinks]{hyperref}
+\graphicspath{{img/}}
+\newcommand{\shot}[2]{%
+  \begin{figure}[H]\centering
+  \includegraphics[width=\linewidth,height=0.66\textheight,keepaspectratio]{#1}
+  \caption{#2}\end{figure}}
 
 % ---- Paleta corporativa (coherente con el sitio) ----
 \definecolor{navy}{HTML}{0D3B66}
@@ -370,7 +376,27 @@ El sitio se despliega automáticamente en \textbf{GitHub Pages} mediante un work
 El código fuente completo está disponible en GitHub: \url{https://github.com/HeyArnoldo/clinicaweb}. El sitio desplegado puede visitarse en \url{https://heyarnoldo.github.io/clinicaweb/}. El repositorio incluye HTML, CSS, los siete archivos JavaScript, el workflow de despliegue y la configuración Docker/Nginx.
 
 \subsection*{Anexo B $\cdot$ Capturas de pantalla representativas}
-Se recomienda adjuntar capturas de las siete páginas en los tres \emph{viewports} principales (móvil 375~px, tablet 768~px, desktop 1280~px), incluyendo: la página de inicio con el menú activo, el formulario de cita mostrando la calculadora de costo, el modal de confirmación, el menú hamburguesa abierto en móvil y el \emph{dashboard} con sus gráficos.
+Las siguientes capturas fueron tomadas del sitio desplegado en producción (\url{https://heyarnoldo.github.io/clinicaweb/}) y evidencian el funcionamiento de cada componente.
+
+\medskip\noindent\textbf{B.1 $\cdot$ Evidencia de la capa JavaScript}
+
+\shot{01-menu-hamburguesa.png}{Menú hamburguesa desplegado en \emph{viewport} móvil (375~px). Evidencia el menú responsivo (ítem 7 de la rúbrica).}
+\shot{02-modal-medico.png}{Ventana flotante con el detalle de un médico, abierta desde el botón ``Ver'' del directorio (ítem 7).}
+\shot{03-modal-confirmacion-cita.png}{Modal de confirmación tras enviar el formulario de cita, con código de turno y costo generados por JavaScript (ítems 5 y 7).}
+\shot{04-calculadora-costo.png}{Calculadora de costo en vivo: tarifa base más recargo del 50\,\% por urgencia (ítem 5).}
+\shot{05-filtro-medicos.png}{Tabla de médicos filtrada dinámicamente por estado, renderizada desde los arrays paralelos (ítems 6 y 8).}
+\shot{06-cotizador-servicios.png}{Cotizador de servicios: total calculado con \lstinline|reduce| sobre las especialidades seleccionadas (ítems 5 y 6).}
+\shot{07-calculadora-imc.png}{Calculadora de índice de masa corporal (IMC) en el registro de paciente (ítem 5).}
+\shot{08-validacion-errores.png}{Validación con JavaScript: campos obligatorios resaltados y mensajes de error personalizados (ítem 5).}
+\shot{09-dashboard.png}{Panel de indicadores: KPIs, gráfico de barras, \emph{donut} de estado y rankings, todo calculado en vivo desde los arrays (ítems 5, 6 y 8).}
+\shot{10-dashboard-filtrado.png}{El mismo panel tras aplicar el filtro de convenio ``Particular'': los indicadores y el gráfico se recalculan al instante (ítem 8).}
+
+\medskip\noindent\textbf{B.2 $\cdot$ Diseño responsivo en tres \emph{viewports}}
+
+\shot{11-inicio-desktop.png}{Página de inicio en escritorio (1280~px): rejilla a varias columnas con Flexbox y Grid (ítem 2).}
+\shot{12-inicio-tablet.png}{Página de inicio en tablet (768~px): reorganización de la rejilla.}
+\shot{13-inicio-movil.png}{Página de inicio en móvil (375~px): disposición vertical y botón de menú hamburguesa.}
+\shot{14-medicos-tablet.png}{Tabla del directorio médico en tablet (768~px) con desplazamiento horizontal.}
 
 \subsection*{Anexo C $\cdot$ Distribución de responsabilidades}
 \begin{center}
